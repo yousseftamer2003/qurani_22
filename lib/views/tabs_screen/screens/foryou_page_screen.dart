@@ -8,7 +8,6 @@ import 'package:qurani_22/controllers/for_you_page_controller.dart';
 import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/generated/l10n.dart';
 import 'package:qurani_22/views/features_screens/widgets/shimmer_effect.dart';
-
 import 'package:share_plus/share_plus.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -20,20 +19,26 @@ class ForyouPageScreen extends StatefulWidget {
 }
 
 class _ForyouPageScreenState extends State<ForyouPageScreen> {
-  final ScreenshotController screenshotController = ScreenshotController();
+  late ForYouPageController _forYouPageController;
+  late LangServices _langProvider;
+
   @override
-  void initState() {
-    Provider.of<ForYouPageController>(context, listen: false)
-        .getForYouPage(context);
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _forYouPageController = Provider.of<ForYouPageController>(context);
+    _langProvider = Provider.of<LangServices>(context, listen: false);
+
+    if (!_forYouPageController.isForYouPageLoaded) {
+      _forYouPageController.getForYouPage(context);
+    }
   }
 
   void _shareAsText(String text) {
     Share.share(text);
   }
 
-  void _captureAndShareScreenshot() async {
-    final image = await screenshotController.capture();
+  void _captureAndShareScreenshot(ScreenshotController controller) async {
+    final image = await controller.capture();
     if (image == null) return;
 
     final directory = await Directory.systemTemp.createTemp();
@@ -44,7 +49,7 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
     Share.shareXFiles([XFile(imagePath)]);
   }
 
-  void _showShareOptions(String text) {
+  void _showShareOptions(String text, ScreenshotController controller) {
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -69,7 +74,7 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
                 title: Text(S.of(context).shareAsScreenshot),
                 onTap: () {
                   Navigator.pop(context);
-                  _captureAndShareScreenshot();
+                  _captureAndShareScreenshot(controller);
                 },
               ),
             ],
@@ -81,52 +86,55 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final langProvider = Provider.of<LangServices>(context, listen: false);
-    return Stack(children: [
-      Container(
-        decoration: const BoxDecoration(
+    return Stack(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
             image: DecorationImage(
-          image: AssetImage('assets/images/for_you_background.png'),
-          fit: BoxFit.cover,
-        )),
-      ),
-      Consumer<ForYouPageController>(
-        builder: (context, forYouProvider, _) {
-          if (!forYouProvider.isForYouPageLoaded) {
-            return buildShimmerEffect(false);
-          } else {
-            return ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: forYouProvider.randomizedContent.length,
-              itemBuilder: (context, index) {
-                final content = forYouProvider.randomizedContent[index];
-                return Card(
-                  margin: const EdgeInsets.only(bottom: 16),
-                  color: Colors.transparent, // Transparent so gradient shows
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
+              image: AssetImage('assets/images/for_you_background.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Consumer<ForYouPageController>(
+          builder: (context, forYouProvider, _) {
+            if (!forYouProvider.isForYouPageLoaded) {
+              return buildShimmerEffect(false);
+            } else {
+              return ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: forYouProvider.randomizedContent.length,
+                itemBuilder: (context, index) {
+                  final content = forYouProvider.randomizedContent[index];
+                  final screenshotController = ScreenshotController();
+
+                  return Card(
+                    margin: const EdgeInsets.only(bottom: 16),
+                    color: Colors.transparent,
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color.fromARGB(255, 235, 247, 255),
-                          Color(0xFFFFFFFF)
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
                     ),
-                    child: Stack(
-                      children: [
-                        Padding(
+                    child: Screenshot(
+                      controller: screenshotController,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 235, 247, 255),
+                              Color(0xFFFFFFFF)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        child: Padding(
                           padding: const EdgeInsets.all(16),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Header row with title and type
+                              // Header row
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -149,10 +157,14 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
                                 ],
                               ),
                               const SizedBox(height: 16),
+
+                              // Arabic or English text
                               Directionality(
                                 textDirection: TextDirection.rtl,
                                 child: Text(
-                                langProvider.isArabic? content['arabic'] ?? '' : content['english']?? '',
+                                  _langProvider.isArabic
+                                      ? content['arabic'] ?? ''
+                                      : content['english'] ?? '',
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -164,16 +176,18 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
                               ),
                               const SizedBox(height: 16),
 
-                              // English translation
+                              // Translation
                               Text(
-                                langProvider.isArabic? content['english'] ?? '' : content['arabic']?? '',
+                                _langProvider.isArabic
+                                    ? content['english'] ?? ''
+                                    : content['arabic'] ?? '',
                                 style: const TextStyle(
                                   fontSize: 16,
                                   height: 1.5,
                                 ),
                               ),
 
-                              // Source or note
+                              // Source
                               const SizedBox(height: 8),
                               Text(
                                 content['source'] ??
@@ -195,22 +209,27 @@ class _ForyouPageScreenState extends State<ForyouPageScreen> {
                                     width: 25,
                                   ),
                                   onPressed: () {
-                                     _showShareOptions(langProvider.isArabic ? content['arabic'] : content['english']);
+                                    _showShareOptions(
+                                      _langProvider.isArabic
+                                          ? content['arabic']
+                                          : content['english'],
+                                      screenshotController,
+                                    );
                                   },
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                );
-              },
-            );
-          }
-        },
-      )
-    ]);
+                  );
+                },
+              );
+            }
+          },
+        ),
+      ],
+    );
   }
 }

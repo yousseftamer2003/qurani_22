@@ -64,7 +64,7 @@ class QuranTextWidget extends StatelessWidget {
                         showOptionsMenu(context, e["surah"], i);
                       },
                     text: getVerse(e["surah"], i,verseEndSymbol: true),
-                    style: GoogleFonts.scheherazadeNew(  // Using Google Font for Quranic text
+                    style: GoogleFonts.scheherazadeNew(
                       color: Colors.black,
                       height: (index == 1 || index == 2) ? 2.h : 1.6.h,
                       wordSpacing: -3.w,
