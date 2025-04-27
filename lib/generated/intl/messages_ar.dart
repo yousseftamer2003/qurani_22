@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "chooseYourEmotion": MessageLookupByLibrary.simpleMessage(
+      "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
+    ),
     "clickHereToCount": MessageLookupByLibrary.simpleMessage("اضغط هنا للعد"),
     "continueUrLastRead": MessageLookupByLibrary.simpleMessage(
       "استمرار القراءة الأخيرة",
@@ -77,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "shareAsText": MessageLookupByLibrary.simpleMessage("مشاركة كنص"),
     "surah": MessageLookupByLibrary.simpleMessage("سورة"),
+    "talkToQuran": MessageLookupByLibrary.simpleMessage("تحدث مع القرآن"),
     "theResultWillBeShownHere": MessageLookupByLibrary.simpleMessage(
       "ستظهر النتيجة هنا!",
     ),

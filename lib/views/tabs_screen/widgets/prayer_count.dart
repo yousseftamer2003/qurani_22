@@ -12,7 +12,7 @@ class PrayerCount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeController>(
             builder: (context, homeProvider, _) {
-              final width = isResultShown? 0.015 : 0.06;
+              final width = isResultShown? 0.02 : 0.09;
               return Positioned.fill(
                 child: AnimatedOpacity(
                   duration: const Duration(milliseconds: 300),

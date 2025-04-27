@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/controllers/ads_controller.dart';
+import 'package:qurani_22/controllers/in_app_purchases_controller.dart';
+import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/controllers/notifications_controller.dart';
 import 'package:qurani_22/controllers/start_controller.dart';
 import 'package:qurani_22/controllers/user_controller.dart';
@@ -26,6 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _navigateBasedOnFirstTime() async {
+    Provider.of<InAppPurchasesController>(context, listen: false).initializeInAppPurchases();
+    Provider.of<LangServices>(context, listen: false).loadLangFromPrefs();
     Provider.of<UserController>(context, listen: false).getOrCreateUUID();
     Provider.of<AdsController>(context, listen: false).initializeAds();
     final prefs = await SharedPreferences.getInstance();

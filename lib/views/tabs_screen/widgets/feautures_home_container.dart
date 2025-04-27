@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/controllers/sebha_controller.dart';
 import 'package:qurani_22/generated/l10n.dart';
 import 'package:qurani_22/views/features_screens/screens/azkar_screen.dart';
 import 'package:qurani_22/views/features_screens/screens/doaa_screen.dart';
 import 'package:qurani_22/views/features_screens/screens/sebha_screen.dart';
+import 'package:qurani_22/views/tabs_screen/screens/quran_page.dart';
 
 
 class FeauturesHomeContainer extends StatelessWidget {
@@ -33,13 +35,13 @@ class FeauturesHomeContainer extends StatelessWidget {
               );
             } ,
             child: feautureItem(title: S.of(context).sebha, icon: "assets/images/sebha.svg",)),
-          // GestureDetector(
-          //   onTap: (){
-          //     Navigator.of(context).push(
-          //       MaterialPageRoute(builder: (ctx)=>  QiblaScreen())
-          //     );
-          //   },
-          //   child: feautureItem(title: "Qibla", icon: "assets/images/qebla.svg",)),
+          GestureDetector(
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (ctx)=>  const QuranPage())
+              );
+            },
+            child: feautureItem(title: "Mushaf", icon: "assets/images/mushaf.svg",)),
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
@@ -71,7 +73,7 @@ class FeauturesHomeContainer extends StatelessWidget {
             color: const Color.fromRGBO(189, 239, 255, 1),
             borderRadius: BorderRadius.circular(6),
           ),
-          child: Center(child: SvgPicture.asset(icon),),
+          child: Center(child: SvgPicture.asset(icon,colorFilter: const ColorFilter.mode(lightBlue, BlendMode.srcIn),),),
         ),
         const SizedBox(height: 5,),
         Text(title),

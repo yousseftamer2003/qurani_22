@@ -30,8 +30,6 @@ class _PlansScreenState extends State<PlansScreen> {
       body: Consumer<InAppPurchasesController>(
         builder: (context, iapProvider, _) {
           return Stack(
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -84,6 +82,9 @@ class _PlansScreenState extends State<PlansScreen> {
                 child: BuyPlanContainer(
                   onTap: () {
                     iapProvider.buySubscription(iapProvider.products[selectedPlan]);
+                  },
+                  onTextTapped: () {
+                    iapProvider.restorePurchases();
                   },
                 )
                 )

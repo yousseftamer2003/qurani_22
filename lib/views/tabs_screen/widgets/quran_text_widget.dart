@@ -28,7 +28,7 @@ class QuranTextWidget extends StatelessWidget {
             textDirection: TextDirection.rtl,
             textAlign: (index == 1 || index == 2)
                 ? TextAlign.center
-                : TextAlign.justify,
+                : TextAlign.right,
             softWrap: true,
             locale: const Locale("ar"),
             text: TextSpan(
@@ -66,7 +66,7 @@ class QuranTextWidget extends StatelessWidget {
                     text: getVerse(e["surah"], i,verseEndSymbol: true),
                     style: GoogleFonts.scheherazadeNew(
                       color: Colors.black,
-                      height: (index == 1 || index == 2) ? 2.h : 1.6.h,
+                      height: (index == 1 || index == 2) ? 2.h : index == 591? 1.7.h : 1.9.h,
                       wordSpacing: -3.w,
                       fontSize: index == 1 || index == 2
                           ? 23.sp

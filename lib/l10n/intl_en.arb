@@ -47,5 +47,7 @@
     "yourPhoneMayBlockAzanNotificationsInBackground": "Your phone may block Azan notifications in the background.",
     "pleaseAllowAutoStartForThisApp": "Please allow auto-start for this app.",
     "settings": "Settings",
-    "continueUrLastRead": "Continue your last read"
+    "continueUrLastRead": "Continue your last read",
+    "talkToQuran": "Talk to Quran",
+    "chooseYourEmotion": "Choose your emotion and we will get you an Aya or Duaa to help you get through it."
 }

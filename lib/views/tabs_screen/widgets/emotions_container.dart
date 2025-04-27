@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/controllers/emotions_controller.dart';
+import 'package:qurani_22/controllers/lang_controller.dart';
 
 
 class EmotionsContainer extends StatefulWidget {
@@ -14,13 +15,14 @@ class EmotionsContainer extends StatefulWidget {
 class _EmotionsContainerState extends State<EmotionsContainer> {
   @override
   Widget build(BuildContext context) {
+    final langServices = Provider.of<LangServices>(context,listen: false);
     return Consumer<EmotionsController>(
       builder: (context, emotionProvider, _) {
         if (!emotionProvider.isEmotionLoaded) {
           return const Center(child: CircularProgressIndicator(color: lightBlue,));
         }else{
       String? selectedEmotion = emotionProvider.selectedEmotion;
-      final emotions = emotionProvider.emotions.map((e) => e.name).toList();
+      List<String> emotions = langServices.isArabic? emotionProvider.emotions.map((e) => e.nameAr!).toList() : emotionProvider.emotions.map((e) => e.name).toList();
       final emotionObjects = emotionProvider.emotions;
       return  Container(
         padding: const EdgeInsets.all(5),
@@ -41,10 +43,10 @@ class _EmotionsContainerState extends State<EmotionsContainer> {
                   setState(() {
                     if(selectedEmotion == emotion){
                       selectedEmotion = null;
-                      emotionProvider.setSelectedEmotion(null);
+                      emotionProvider.setSelectedEmotion(null,false);
                     }else{
                       selectedEmotion = emotion;
-                      emotionProvider.setSelectedEmotion(emotionObject);
+                      emotionProvider.setSelectedEmotion(emotionObject,langServices.isArabic);
                     }
                   });
                 },

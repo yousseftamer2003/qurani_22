@@ -33,6 +33,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("Choose Language"),
+    "chooseYourEmotion": MessageLookupByLibrary.simpleMessage(
+      "Choose your emotion and we will get you an Aya or Duaa to help you get through it.",
+    ),
     "clickHereToCount": MessageLookupByLibrary.simpleMessage(
       "Click here to count",
     ),
@@ -77,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "shareAsText": MessageLookupByLibrary.simpleMessage("Share as Text"),
     "surah": MessageLookupByLibrary.simpleMessage("Surah"),
+    "talkToQuran": MessageLookupByLibrary.simpleMessage("Talk to Quran"),
     "theResultWillBeShownHere": MessageLookupByLibrary.simpleMessage(
       "The Result will be shown here!",
     ),

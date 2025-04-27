@@ -47,5 +47,7 @@
     "yourPhoneMayBlockAzanNotificationsInBackground": "قد يحظر هاتفك اشعارات الصلاة في الخلفية.",
     "pleaseAllowAutoStartForThisApp": "الرجاء تفعيل التشغيل التلقائي لهذا التطبيق.",
     "settings": "الاعدادات",
-    "continueUrLastRead": "استمرار القراءة الأخيرة"
+    "continueUrLastRead": "استمرار القراءة الأخيرة",
+    "talkToQuran": "تحدث مع القرآن",
+    "chooseYourEmotion": "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه."
 }

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/controllers/emotions_controller.dart';
 import 'package:qurani_22/generated/l10n.dart';
+import 'package:qurani_22/views/tabs_screen/widgets/ai_result_widget.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:screenshot/screenshot.dart';
 import 'dart:io';
@@ -19,7 +20,6 @@ class ResultContainer extends StatefulWidget {
 
 class _ResultContainerState extends State<ResultContainer> {
   final ScreenshotController screenshotController = ScreenshotController();
-
 
   void _shareAsText(String text) {
     Share.share(text);
@@ -90,10 +90,20 @@ void _captureAndShareScreenshot() async {
   Widget build(BuildContext context) {
   return Consumer<EmotionsController>(
     builder: (context, emotionProvider, _) {
-      if(emotionProvider.result == null) {
-        return const Center(
-          child: CircularProgressIndicator(color: lightBlue,),
+      if(emotionProvider.isLimitReached){
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 100,),
+            Text('You have reached the limit of generations today'),
+            Text('Please come back tommorrow'),
+          ],
         );
+      }
+      if (emotionProvider.result == null) {
+        return const Center(
+    child: TypingDots(),
+  );
       } else {
         return Screenshot(
           controller: screenshotController,
@@ -112,83 +122,72 @@ void _captureAndShareScreenshot() async {
               ],
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.of(context).hereIsHelpForYourSelectedEmotion,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                  child: Text(
-                    emotionProvider.result!,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      height: 1.5,
-                    ),
+                Text(
+                  S.of(context).hereIsHelpForYourSelectedEmotion,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
                   ),
                 ),
+                const Divider(height: 20),
+                AIResultWidget(result: emotionProvider.result!, note: emotionProvider.noteResult),
                 const SizedBox(height: 10),
-                if(isCapturing) Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset('assets/images/mushaf_blue.png', width: 50, height: 50),
-                        const SizedBox(height: 8),
-                        Text('Powered by تحدث مع القران'),
-                      ],
-                    ),
-                  ],
-                ) else Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        emotionProvider.regenerateResult();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: darkBlue.withOpacity(0.1),
-                        foregroundColor: darkBlue,
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                if (isCapturing)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset('assets/images/mushaf_blue.png', width: 50, height: 50),
+                          const SizedBox(height: 8),
+                          Text('Powered by تحدث مع القران'),
+                        ],
+                      ),
+                    ],
+                  )
+                else
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          emotionProvider.regenerateResult(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: darkBlue.withOpacity(0.1),
+                          foregroundColor: darkBlue,
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
+                        icon: const Icon(Icons.refresh, size: 18),
+                        label: Text(S.of(context).Regenerate),
                       ),
-                      icon: const Icon(Icons.refresh, size: 18),
-                      label: Text(S.of(context).Regenerate),
-                    ),
-                    const SizedBox(width: 16),
-                    ElevatedButton.icon(
-                      onPressed: (){
-                        _showShareOptions(emotionProvider.result!);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: lightBlue.withOpacity(0.1),
-                        foregroundColor: darkBlue,
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      const SizedBox(width: 16),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          _showShareOptions(emotionProvider.result!);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: lightBlue.withOpacity(0.1),
+                          foregroundColor: darkBlue,
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
+                        icon: SvgPicture.asset(
+                          'assets/images/share_icon.svg',
+                          height: 18,
+                          color: darkBlue,
+                        ),
+                        label: Text(S.of(context).share),
                       ),
-                      icon: SvgPicture.asset(
-                        'assets/images/share_icon.svg', 
-                        height: 18,
-                        color: darkBlue,
-                      ),
-                      label: Text(S.of(context).share),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
               ],
             ),
           ),
@@ -197,4 +196,5 @@ void _captureAndShareScreenshot() async {
     },
   );
 }
+
 }

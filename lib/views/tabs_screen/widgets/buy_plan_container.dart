@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:qurani_22/constants/colors.dart';
 
 class BuyPlanContainer extends StatelessWidget {
-  const BuyPlanContainer({super.key, this.onTap});
+  const BuyPlanContainer({super.key, this.onTap, this.onTextTapped});
   final void Function()? onTap;
+  final void Function()? onTextTapped;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,43 +22,56 @@ class BuyPlanContainer extends StatelessWidget {
       child: Center(
         child: GestureDetector(
           onTap: onTap,
-          child: const GradientBorderButton()),
+          child: const GradientBorderButton(),
+        ),
       ),
     );
   }
 }
-
 
 class GradientBorderButton extends StatelessWidget {
   const GradientBorderButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: GradientBorderPainter(),
-      child: Container(
-        width: MediaQuery.sizeOf(context).width,
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          color: Colors.white, // Keep background white
-        ),
-        child: ShaderMask(
-          shaderCallback: (bounds) => const LinearGradient(
-            colors: [Colors.orange, Colors.yellow],
-          ).createShader(bounds),
-          child: const Center(
-            child: Text(
-              "Upgrade to premium",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white, // White to apply gradient effect
+    return Column(
+      children: [
+        CustomPaint(
+          painter: GradientBorderPainter(),
+          child: Container(
+            width: MediaQuery.sizeOf(context).width,
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: Colors.white, // Keep background white
+            ),
+            child: ShaderMask(
+              shaderCallback:
+                  (bounds) => const LinearGradient(
+                    colors: [Colors.orange, Colors.yellow],
+                  ).createShader(bounds),
+              child: const Center(
+                child: Text(
+                  "Upgrade to premium",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white, // White to apply gradient effect
+                  ),
+                ),
               ),
             ),
           ),
         ),
-      ),
+        const SizedBox(height: 10),
+        TextButton(
+          onPressed: () {},
+          child: const Text(
+            'Restore Purchases',
+            style: TextStyle(color: darkBlue, fontSize: 16),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -63,12 +79,13 @@ class GradientBorderButton extends StatelessWidget {
 class GradientBorderPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..shader = const LinearGradient(
-        colors: [Colors.orange, Colors.yellow],
-      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
+    final Paint paint =
+        Paint()
+          ..shader = const LinearGradient(
+            colors: [Colors.orange, Colors.yellow],
+          ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2;
 
     final RRect rRect = RRect.fromRectAndRadius(
       Rect.fromLTWH(0, 0, size.width, size.height),
@@ -81,4 +98,3 @@ class GradientBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:math' as math;
@@ -7,6 +9,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:qurani_22/controllers/in_app_purchases_controller.dart';
+import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/controllers/user_controller.dart';
 import 'package:qurani_22/models/emotions_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,17 +26,20 @@ class EmotionsController with ChangeNotifier {
   int? selectedEmotionId;
 
   String? result;
+  String? noteResult;
 
   bool isEmotionLoaded = false;
 
+  bool isLimitReached = false;
+
   final random = math.Random();
 
-  void setSelectedEmotion(Emotion? emotion) {
+  void setSelectedEmotion(Emotion? emotion,bool isArabic) {
     if (emotion == null) {
       selectedEmotion = null;
       selectedEmotionId = null;
     } else {
-      selectedEmotion = emotion.name;
+      selectedEmotion = isArabic? emotion.nameAr : emotion.name;
       selectedEmotionId = emotion.id;
     }
     notifyListeners();
@@ -73,6 +80,8 @@ class EmotionsController with ChangeNotifier {
   Future<void> fetchEmotionResult(BuildContext context, int emotionId) async {
   final userProvider = Provider.of<UserController>(context, listen: false);
   final uuid = userProvider.uuid;
+  final iapProvider = Provider.of<InAppPurchasesController>(context, listen: false);
+  final isPremium = iapProvider.isPremium;
 
   final prefs = await SharedPreferences.getInstance();
   final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
@@ -82,17 +91,15 @@ class EmotionsController with ChangeNotifier {
   int count = prefs.getInt('generationCount') ?? 0;
   int limit = prefs.getInt('limit') ?? 0;
 
-  // If the stored date is different from today, reset the count
   if (storedDate != today) {
     await prefs.setInt('generationCount', 0);
     await prefs.setString('lastGenerationDate', today);
     count = 0;
   }
 
-  // If the count has reached the limit, don't proceed
-  if (count >= limit) {
+  if (!isPremium && count >= limit) {
     log('User has reached the daily generation limit: $limit');
-    // You could also show a dialog or toast here if needed
+    isLimitReached = true;
     return;
   }
 
@@ -110,10 +117,12 @@ class EmotionsController with ChangeNotifier {
       final responseData = jsonDecode(response.body);
       EmotionResult emotionResult = EmotionResult.fromJson(responseData['data']);
       _emotionResult = emotionResult;
-      setRandomResult();
+      setRandomResult(context);
 
-      // Increment and store the new count
-      await prefs.setInt('generationCount', count + 1);
+      if (!isPremium) {
+        // Only increment for non-premium users
+        await prefs.setInt('generationCount', count + 1);
+      }
 
       notifyListeners();
     } else {
@@ -125,42 +134,63 @@ class EmotionsController with ChangeNotifier {
   }
 }
 
-  void setRandomResult() {
-    if (_emotionResult == null) {
-      result = null;
-      return;
-    }
 
-    List<String> allItems = [];
+  void setRandomResult(BuildContext context) {
+  final langServices = Provider.of<LangServices>(context, listen: false);
 
-    for (var duaa in _emotionResult!.duaas) {
-      allItems.add(duaa.duaaEn);
-    }
-
-    for (var aya in _emotionResult!.ayat) {
-      allItems.add(aya.ayaEn);
-    }
-
-    for (var hadith in _emotionResult!.ahadith) {
-      allItems.add(hadith.hadithEn);
-    }
-
-    for (var zekr in _emotionResult!.azkar) {
-      allItems.add(zekr.zekrEn);
-    }
-
-    if (allItems.isNotEmpty) {
-      int randomIndex = random.nextInt(allItems.length);
-      result = allItems[randomIndex];
-      log('result: $result');
-      notifyListeners();
-    } else {
-      result = null;
-    }
+  if (_emotionResult == null) {
+    result = null;
+    noteResult = null;
+    return;
   }
 
-  void regenerateResult() {
-    setRandomResult();
+  List<Map<String, String>> allItems = [];
+
+  for (var duaa in _emotionResult!.duaas) {
+    allItems.add({
+      'text': langServices.isArabic ? duaa.duaaAr : duaa.duaaEn,
+      'note':  (duaa.note ?? ''),
+    });
+  }
+
+  for (var aya in _emotionResult!.ayat) {
+    allItems.add({
+      'text': langServices.isArabic ? aya.ayaAr : aya.ayaEn,
+      'note': (aya.note ?? ''),
+    });
+  }
+
+  for (var hadith in _emotionResult!.ahadith) {
+    allItems.add({
+      'text': langServices.isArabic ? hadith.hadithAr : hadith.hadithEn,
+      'note':  (hadith.note ?? ''),
+    });
+  }
+
+  for (var zekr in _emotionResult!.azkar) {
+    allItems.add({
+      'text': langServices.isArabic ? zekr.zekrAr : zekr.zekrEn,
+      'note': (zekr.note ?? ''),
+    });
+  }
+
+  if (allItems.isNotEmpty) {
+    int randomIndex = random.nextInt(allItems.length);
+    result = allItems[randomIndex]['text'];
+    noteResult = allItems[randomIndex]['note'];
+    log('result: $result');
+    log('note: $noteResult');
+    notifyListeners();
+  } else {
+    result = null;
+    noteResult = null;
+  }
+}
+
+
+
+  void regenerateResult(BuildContext context) {
+    setRandomResult(context);
   }
 
   Future<void> getEmotionsLimit(BuildContext context) async {

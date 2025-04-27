@@ -404,6 +404,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Talk to Quran`
+  String get talkToQuran {
+    return Intl.message(
+      'Talk to Quran',
+      name: 'talkToQuran',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your emotion and we will get you an Aya or Duaa to help you get through it.`
+  String get chooseYourEmotion {
+    return Intl.message(
+      'Choose your emotion and we will get you an Aya or Duaa to help you get through it.',
+      name: 'chooseYourEmotion',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
