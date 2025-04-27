@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
     "go": MessageLookupByLibrary.simpleMessage("اذهب"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
-      "إليك المساعدة للشعور الذي اخترته",
+      "ها هي كلمات تواسيك فيما تمر به.",
     ),
     "holdVerseToListen": MessageLookupByLibrary.simpleMessage(
       "اضغط على الآية للاستماع",

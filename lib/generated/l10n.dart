@@ -225,10 +225,10 @@ class S {
     );
   }
 
-  /// `Here is help for your selected emotion`
+  /// `Here’s some comfort for what you’re going through.`
   String get hereIsHelpForYourSelectedEmotion {
     return Intl.message(
-      'Here is help for your selected emotion',
+      'Here’s some comfort for what you’re going through.',
       name: 'hereIsHelpForYourSelectedEmotion',
       desc: '',
       args: [],

@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
     "go": MessageLookupByLibrary.simpleMessage("Go"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
-      "Here is help for your selected emotion",
+      "Here’s some comfort for what you’re going through.",
     ),
     "holdVerseToListen": MessageLookupByLibrary.simpleMessage(
       "Hold verse to listen",

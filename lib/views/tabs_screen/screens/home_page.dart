@@ -79,18 +79,18 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
 
                 if (!isClicked)
                   Positioned(
-                    top: 28,
-                    right: 20,
-                    child: InkWell(
-                      onTap: () {
+                    top: 12,
+                    right: 8,
+                    child: TextButton(
+                      onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (ctx) => const PlansScreen(),
                           ),
                         );
                       },
-                      child: SvgPicture.asset('assets/images/prem_user.svg',width: 100),
-                    ),
+                      child: SvgPicture.asset('assets/images/prem_user.svg',width: 100)),
+                    
                   ),
 
                 Positioned(
