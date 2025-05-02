@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:qurani_22/constants/colors.dart';
+import 'package:qurani_22/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -11,6 +13,11 @@ class StartController with ChangeNotifier {
   bool _isLoading = true;
 
   bool get isLoading => _isLoading;
+
+  void setisLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
 
   double _latitude = 0.0;
   double _longitude = 0.0;
@@ -35,22 +42,37 @@ class StartController with ChangeNotifier {
 }
 
 
-Future<void> getCurrentLocation({required bool isFirstTime}) async {
+Future<void> getCurrentLocation(context,{required bool isFirstTime}) async {
   if(!isFirstTime){
     final prefs = await SharedPreferences.getInstance();
     _latitude = prefs.getDouble('latitude') ?? 0.0;
     _longitude = prefs.getDouble('longitude') ?? 0.0;
     _address = prefs.getString('address') ?? 'No Address';
-    log('_address: $_address');
-    log('latitude: $_latitude');
-    log('longitude: $_longitude');
+    notifyListeners();
   }else{
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
-    return Future.error('Location services are disabled.');
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(S.of(context).locationRequired),
+        content: Text(S.of(context).pleaseEnableLocationServicesForExactPrayerTimes),
+        actions: [
+          TextButton(
+            child: Text(S.of(context).ok, style: const TextStyle(color: darkBlue)),
+            onPressed: () async {
+              Navigator.pop(context);
+              _isLoading = false;
+              await Geolocator.openLocationSettings();
+              notifyListeners();
+            },
+          )
+        ],
+      ),
+    );
+    return;
   }
 
-  // Request location permission
   PermissionStatus status = await Permission.location.status;
   
   if (status.isDenied) {

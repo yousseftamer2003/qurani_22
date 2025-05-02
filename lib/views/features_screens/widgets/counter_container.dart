@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/controllers/sebha_controller.dart';
+import 'package:qurani_22/generated/l10n.dart';
 
 class CounterContainer extends StatelessWidget {
   final String phrase;
@@ -27,12 +28,7 @@ class CounterContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text("Edit", style: TextStyle(color: Colors.white)),
-            ],
-          ),
+          SizedBox(height: 5,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,7 +41,7 @@ class CounterContainer extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => sebhaController.reset(phrase),
-                child: Text("reset", style: TextStyle(color: Colors.white)),
+                child: Text(S.of(context).reset, style: const TextStyle(color: Colors.white,fontSize: 16)),
               ),
             ],
           ),

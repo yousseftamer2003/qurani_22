@@ -34,13 +34,13 @@ class _SplashScreenState extends State<SplashScreen> {
     Provider.of<AdsController>(context, listen: false).initializeAds();
     final prefs = await SharedPreferences.getInstance();
     final isFirstTime = prefs.getBool('isFirstTime') ?? true;
-    Provider.of<StartController>(context, listen: false).getCurrentLocation(isFirstTime: isFirstTime);
 
     Future.delayed(const Duration(seconds: 3), () async {
       if (isFirstTime) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StartScreen()));
         prefs.setBool('isFirstTime', false);
       } else {
+        Provider.of<StartController>(context, listen: false).getCurrentLocation(context,isFirstTime: false);
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const TabsScreen()));
       }
    });

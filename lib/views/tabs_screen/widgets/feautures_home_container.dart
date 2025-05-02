@@ -41,7 +41,7 @@ class FeauturesHomeContainer extends StatelessWidget {
                 MaterialPageRoute(builder: (ctx)=>  const QuranPage())
               );
             },
-            child: feautureItem(title: "Mushaf", icon: "assets/images/mushaf.svg",)),
+            child: feautureItem(title: S.of(context).Mushaf, icon: "assets/images/mushaf.svg",)),
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(

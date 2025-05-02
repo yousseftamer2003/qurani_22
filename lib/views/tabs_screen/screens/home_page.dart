@@ -28,9 +28,11 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
 
   @override
   void initState() {
-    Provider.of<HomeController>(context, listen: false).getPrayerTimes(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
     Provider.of<EmotionsController>(context,listen: false,).getEmotions(context);
     Provider.of<EmotionsController>(context,listen: false,).getEmotionsLimit(context);
+    Provider.of<HomeController>(context, listen: false).getPrayerTimes(context);
+    });
     super.initState();
   }
 
@@ -112,12 +114,7 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
                         child: Column(
                           children: [
                             Consumer2<StartController, HomeController>(
-                              builder: (
-                                context,
-                                startProvider,
-                                homeProvider,
-                                _,
-                              ) {
+                              builder: (context,startProvider,homeProvider,_) {
                                 if (!homeProvider.isLoaded) {
                                   return const Center(
                                     child: CircularProgressIndicator(

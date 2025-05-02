@@ -28,34 +28,45 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: _pages[_selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          currentIndex: _selectedIndex,
-          onTap: _onTabTapped,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/home.svg'),
-              label: 'الرئيسية',
-              activeIcon: SvgPicture.asset('assets/images/homeActive.svg'),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/mushaf.svg'),
-              label: 'القرآن',
-              activeIcon: SvgPicture.asset('assets/images/mushaf.svg'), // Add this
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/light.svg'),
-              label: 'الإعدادات',
-              activeIcon: SvgPicture.asset('assets/images/lightActive.svg'),
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: () async {
+        if (_selectedIndex != 0) {
+          setState(() {
+            _selectedIndex = 0;
+          });
+          return false;
+        }
+        return true;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          body: _pages[_selectedIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            currentIndex: _selectedIndex,
+            onTap: _onTabTapped,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/images/home.svg'),
+                label: 'الرئيسية',
+                activeIcon: SvgPicture.asset('assets/images/homeActive.svg'),
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/images/mushaf.svg'),
+                label: 'القرآن',
+                activeIcon: SvgPicture.asset('assets/images/mushaf.svg'), // Add this
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/images/light.svg'),
+                label: 'الإعدادات',
+                activeIcon: SvgPicture.asset('assets/images/lightActive.svg'),
+              ),
+            ],
+          ),
         ),
       ),
     );

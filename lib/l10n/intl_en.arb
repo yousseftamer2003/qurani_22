@@ -49,5 +49,21 @@
     "settings": "Settings",
     "continueUrLastRead": "Continue your last read",
     "talkToQuran": "Talk to Quran",
-    "chooseYourEmotion": "Choose your emotion and we will get you an Aya or Duaa to help you get through it."
+    "chooseYourEmotion": "Choose your emotion and we will get you an Aya or Duaa to help you get through it.",
+    "addressRequired": "Address is required",
+    "toGetYourLocationAndContinue": "To get your location and continue",
+    "clickOn": "Click on",
+    "ok": "OK",
+    "locationRequired": "Location Required",
+    "pleaseEnableLocationServicesForExactPrayerTimes": "Please enable location services for exact prayer times.",
+    "edit": "Edit",
+    "reset": "Reset",
+    "UnlockPremium": "Unlock Premium",
+    "NoAds": "No ads",
+    "noGenerationLimits": "No generation limits",
+    "pickUrPlan": "Pick your plan",
+    "upgradeToPremium": "Upgrade to Premium",
+    "restorePurchases": "Restore Purchases",
+    "month": "month",
+    "year": "year"
 }

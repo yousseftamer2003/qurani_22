@@ -23,6 +23,7 @@ class _StartScreenState extends State<StartScreen> {
     super.initState();
     Provider.of<QuranController>(context, listen: false).loadJsonAsset();
     Provider.of<LangServices>(context, listen: false).loadLangFromPrefs();
+    Provider.of<StartController>(context,listen: false).getCurrentLocation(context, isFirstTime: true);
   }
 
   @override
@@ -35,29 +36,32 @@ class _StartScreenState extends State<StartScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
+                width: MediaQuery.sizeOf(context).width * 0.8,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${S.of(context).yourPhoneMayBlockAzanNotificationsInBackground}\n ${S.of(context).pleaseAllowAutoStartForThisApp}',
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        AutoStartHelper.openAutoStartSettings();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: darkBlue,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Text(S.of(context).settings),
+                    ),
+                  ],
+                ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('${S.of(context).yourPhoneMayBlockAzanNotificationsInBackground}\n ${S.of(context).pleaseAllowAutoStartForThisApp}'),
-                  ElevatedButton(
-                  onPressed: (){
-                    AutoStartHelper.openAutoStartSettings();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: darkBlue,
-                    foregroundColor: Colors.white,
-                  ),
-                  child: Text(S.of(context).settings))
-                ],
-              ),
-            ),
               const SizedBox(height: 30),
               Image.asset('assets/images/mushaf_blue.png'),
               const SizedBox(height: 90),
@@ -113,14 +117,22 @@ class _StartScreenState extends State<StartScreen> {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            Container(
-                              padding: const EdgeInsets.all(12),
-                              height: 45,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: darkBlue),
+                            GestureDetector(
+                              onTap: () {
+                                addressProvider.setisLoading(true);
+                                addressProvider.getCurrentLocation(context,isFirstTime: true);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(12),
+                                height: 45,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: darkBlue),
+                                ),
+                                child: SvgPicture.asset(
+                                  'assets/images/loc.svg',
+                                ),
                               ),
-                              child: SvgPicture.asset('assets/images/loc.svg'),
                             ),
                           ],
                         ),
@@ -186,10 +198,47 @@ class _StartScreenState extends State<StartScreen> {
                           children: [
                             GradientButton(
                               onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (ctx) => const TabsScreen()),
-                                );
+                                if (addressProvider.address.isEmpty) {
+                                  showDialog(
+                                    context: context,
+                                    builder:
+                                        (context) => AlertDialog(
+                                          title: Text(S.of(context).addressRequired),
+                                          content: Wrap(
+                                            crossAxisAlignment:
+                                                WrapCrossAlignment.center,
+                                            children: [
+                                              Text(S.of(context).clickOn),
+                                              SvgPicture.asset(
+                                                'assets/images/loc.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                              Text(S.of(context).toGetYourLocationAndContinue,
+                                              ),
+                                            ],
+                                          ),
+                                          actions: [
+                                            TextButton(
+                                              child: Text(S.of(context).ok,
+                                                style: TextStyle(
+                                                  color: darkBlue,
+                                                ),
+                                              ),
+                                              onPressed: () async {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                  );
+                                } else {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (ctx) => const TabsScreen(),
+                                    ),
+                                  );
+                                }
                               },
                               label: '',
                               width: 50,
@@ -213,7 +262,7 @@ class _StartScreenState extends State<StartScreen> {
           // **Loading Overlay**
           Consumer<StartController>(
             builder: (context, addressProvider, _) {
-              if (addressProvider.address.isEmpty) {
+              if (addressProvider.isLoading) {
                 return Container(
                   color: Colors.black.withOpacity(0.7),
                   child: const Center(

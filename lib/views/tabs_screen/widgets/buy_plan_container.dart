@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qurani_22/constants/colors.dart';
+import 'package:qurani_22/generated/l10n.dart';
 
 class BuyPlanContainer extends StatelessWidget {
   const BuyPlanContainer({super.key, this.onTap, this.onTextTapped});
@@ -50,9 +51,9 @@ class GradientBorderButton extends StatelessWidget {
                   (bounds) => const LinearGradient(
                     colors: [Colors.orange, Colors.yellow],
                   ).createShader(bounds),
-              child: const Center(
+              child:  Center(
                 child: Text(
-                  "Upgrade to premium",
+                  S.of(context).upgradeToPremium,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -66,9 +67,9 @@ class GradientBorderButton extends StatelessWidget {
         const SizedBox(height: 10),
         TextButton(
           onPressed: () {},
-          child: const Text(
-            'Restore Purchases',
-            style: TextStyle(color: darkBlue, fontSize: 16),
+          child: Text(
+            S.of(context).restorePurchases,
+            style: const TextStyle(color: darkBlue, fontSize: 16),
           ),
         ),
       ],

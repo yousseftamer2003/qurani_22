@@ -424,6 +424,131 @@ class S {
       args: [],
     );
   }
+
+  /// `Address is required`
+  String get addressRequired {
+    return Intl.message(
+      'Address is required',
+      name: 'addressRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To get your location and continue`
+  String get toGetYourLocationAndContinue {
+    return Intl.message(
+      'To get your location and continue',
+      name: 'toGetYourLocationAndContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click on`
+  String get clickOn {
+    return Intl.message('Click on', name: 'clickOn', desc: '', args: []);
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
+  /// `Location Required`
+  String get locationRequired {
+    return Intl.message(
+      'Location Required',
+      name: 'locationRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enable location services for exact prayer times.`
+  String get pleaseEnableLocationServicesForExactPrayerTimes {
+    return Intl.message(
+      'Please enable location services for exact prayer times.',
+      name: 'pleaseEnableLocationServicesForExactPrayerTimes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `Reset`
+  String get reset {
+    return Intl.message('Reset', name: 'reset', desc: '', args: []);
+  }
+
+  /// `Unlock Premium`
+  String get UnlockPremium {
+    return Intl.message(
+      'Unlock Premium',
+      name: 'UnlockPremium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No ads`
+  String get NoAds {
+    return Intl.message('No ads', name: 'NoAds', desc: '', args: []);
+  }
+
+  /// `No generation limits`
+  String get noGenerationLimits {
+    return Intl.message(
+      'No generation limits',
+      name: 'noGenerationLimits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick your plan`
+  String get pickUrPlan {
+    return Intl.message(
+      'Pick your plan',
+      name: 'pickUrPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upgrade to Premium`
+  String get upgradeToPremium {
+    return Intl.message(
+      'Upgrade to Premium',
+      name: 'upgradeToPremium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restore Purchases`
+  String get restorePurchases {
+    return Intl.message(
+      'Restore Purchases',
+      name: 'restorePurchases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `month`
+  String get month {
+    return Intl.message('month', name: 'month', desc: '', args: []);
+  }
+
+  /// `year`
+  String get year {
+    return Intl.message('year', name: 'year', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

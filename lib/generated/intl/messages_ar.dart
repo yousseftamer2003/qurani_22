@@ -29,9 +29,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Goto": MessageLookupByLibrary.simpleMessage("اذهب إلى"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("مصحف"),
+    "NoAds": MessageLookupByLibrary.simpleMessage("لا اعلانات"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("لا توجد صفحة محفوظة"),
     "Regenerate": MessageLookupByLibrary.simpleMessage("إعادة إنشاء"),
     "Shurooq": MessageLookupByLibrary.simpleMessage("الشروق"),
+    "UnlockPremium": MessageLookupByLibrary.simpleMessage("فتح المميز"),
+    "addressRequired": MessageLookupByLibrary.simpleMessage("العنوان مطلوب"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
@@ -39,11 +42,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
     ),
     "clickHereToCount": MessageLookupByLibrary.simpleMessage("اضغط هنا للعد"),
+    "clickOn": MessageLookupByLibrary.simpleMessage("اضغط على"),
     "continueUrLastRead": MessageLookupByLibrary.simpleMessage(
       "استمرار القراءة الأخيرة",
     ),
     "countForZekr": MessageLookupByLibrary.simpleMessage("عدد للسبحة"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("الظهر"),
+    "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
     "go": MessageLookupByLibrary.simpleMessage("اذهب"),
@@ -59,15 +64,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "languages": MessageLookupByLibrary.simpleMessage("اللغات"),
     "listenToQuran": MessageLookupByLibrary.simpleMessage("استمع الى القرآن"),
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
+    "locationRequired": MessageLookupByLibrary.simpleMessage("موقع مطلوب"),
     "maghrib": MessageLookupByLibrary.simpleMessage("المغرب"),
+    "month": MessageLookupByLibrary.simpleMessage("شهر"),
     "nextPrayer": MessageLookupByLibrary.simpleMessage("الصلاة التالية:"),
+    "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
+      "لا حدود التوليد",
+    ),
+    "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "page": MessageLookupByLibrary.simpleMessage("صفحة"),
     "pageForm": MessageLookupByLibrary.simpleMessage("نموذج الصفحة"),
+    "pickUrPlan": MessageLookupByLibrary.simpleMessage("اختر خطتك"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة شعور أولاً!",
     ),
     "pleaseAllowAutoStartForThisApp": MessageLookupByLibrary.simpleMessage(
       "الرجاء تفعيل التشغيل التلقائي لهذا التطبيق.",
+    ),
+    "pleaseEnableLocationServicesForExactPrayerTimes":
+        MessageLookupByLibrary.simpleMessage(
+          "الرجاء تفعيل خدمات الموقع للوقت الصلاة المطلوب.",
+        ),
+    "reset": MessageLookupByLibrary.simpleMessage("اعادة"),
+    "restorePurchases": MessageLookupByLibrary.simpleMessage(
+      "استعادة الشراءات",
     ),
     "savePage": MessageLookupByLibrary.simpleMessage("حفظ الصفحة"),
     "sebha": MessageLookupByLibrary.simpleMessage("السبحة"),
@@ -87,13 +107,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeUntilNextPrayer": MessageLookupByLibrary.simpleMessage(
       "الوقت المتبقي حتى الصلاة",
     ),
+    "toGetYourLocationAndContinue": MessageLookupByLibrary.simpleMessage(
+      "للحصول على موقعك واستمرار",
+    ),
     "todaysFeed": MessageLookupByLibrary.simpleMessage("محتوى اليوم:"),
     "todaysduaa": MessageLookupByLibrary.simpleMessage("ادعية اليوم"),
+    "upgradeToPremium": MessageLookupByLibrary.simpleMessage("ترقية للمميز"),
     "verse": MessageLookupByLibrary.simpleMessage("آية"),
     "welcometoTalktoQuran": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في التحدث مع القرآن",
     ),
     "whatIsYourMood": MessageLookupByLibrary.simpleMessage("ما هو مزاجك؟"),
+    "year": MessageLookupByLibrary.simpleMessage("سنة"),
     "yourPhoneMayBlockAzanNotificationsInBackground":
         MessageLookupByLibrary.simpleMessage(
           "قد يحظر هاتفك اشعارات الصلاة في الخلفية.",

@@ -49,5 +49,21 @@
     "settings": "الاعدادات",
     "continueUrLastRead": "استمرار القراءة الأخيرة",
     "talkToQuran": "تحدث مع القرآن",
-    "chooseYourEmotion": "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه."
+    "chooseYourEmotion": "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
+    "addressRequired": "العنوان مطلوب",
+    "toGetYourLocationAndContinue": "للحصول على موقعك واستمرار",
+    "clickOn": "اضغط على",
+    "ok": "حسنا",
+    "locationRequired": "موقع مطلوب",
+    "pleaseEnableLocationServicesForExactPrayerTimes": "الرجاء تفعيل خدمات الموقع للوقت الصلاة المطلوب.",
+    "edit": "تعديل",
+    "reset": "اعادة",
+    "UnlockPremium": "فتح المميز",
+    "NoAds": "لا اعلانات",
+    "noGenerationLimits": "لا حدود التوليد",
+    "pickUrPlan": "اختر خطتك",
+    "upgradeToPremium": "ترقية للمميز",
+    "restorePurchases": "استعادة الشراءات",
+    "month": "شهر",
+    "year": "سنة"
 }

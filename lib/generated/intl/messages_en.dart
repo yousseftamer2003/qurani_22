@@ -27,9 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "GoToSavedPage": MessageLookupByLibrary.simpleMessage("Go to Saved Page"),
     "Goto": MessageLookupByLibrary.simpleMessage("Goto"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("Mushaf"),
+    "NoAds": MessageLookupByLibrary.simpleMessage("No ads"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("No Saved Page"),
     "Regenerate": MessageLookupByLibrary.simpleMessage("Regenerate"),
     "Shurooq": MessageLookupByLibrary.simpleMessage("Shurooq"),
+    "UnlockPremium": MessageLookupByLibrary.simpleMessage("Unlock Premium"),
+    "addressRequired": MessageLookupByLibrary.simpleMessage(
+      "Address is required",
+    ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("Choose Language"),
@@ -39,11 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "clickHereToCount": MessageLookupByLibrary.simpleMessage(
       "Click here to count",
     ),
+    "clickOn": MessageLookupByLibrary.simpleMessage("Click on"),
     "continueUrLastRead": MessageLookupByLibrary.simpleMessage(
       "Continue your last read",
     ),
     "countForZekr": MessageLookupByLibrary.simpleMessage("Count for Zekr"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("Dhuhr"),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
     "go": MessageLookupByLibrary.simpleMessage("Go"),
@@ -59,15 +66,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "languages": MessageLookupByLibrary.simpleMessage("Languages"),
     "listenToQuran": MessageLookupByLibrary.simpleMessage("Listen to Quran"),
     "location": MessageLookupByLibrary.simpleMessage("Location"),
+    "locationRequired": MessageLookupByLibrary.simpleMessage(
+      "Location Required",
+    ),
     "maghrib": MessageLookupByLibrary.simpleMessage("Maghrib"),
+    "month": MessageLookupByLibrary.simpleMessage("month"),
     "nextPrayer": MessageLookupByLibrary.simpleMessage("Next Prayer:"),
+    "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
+      "No generation limits",
+    ),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "page": MessageLookupByLibrary.simpleMessage("Page"),
     "pageForm": MessageLookupByLibrary.simpleMessage("Page Form"),
+    "pickUrPlan": MessageLookupByLibrary.simpleMessage("Pick your plan"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "Please add an emotion first!",
     ),
     "pleaseAllowAutoStartForThisApp": MessageLookupByLibrary.simpleMessage(
       "Please allow auto-start for this app.",
+    ),
+    "pleaseEnableLocationServicesForExactPrayerTimes":
+        MessageLookupByLibrary.simpleMessage(
+          "Please enable location services for exact prayer times.",
+        ),
+    "reset": MessageLookupByLibrary.simpleMessage("Reset"),
+    "restorePurchases": MessageLookupByLibrary.simpleMessage(
+      "Restore Purchases",
     ),
     "savePage": MessageLookupByLibrary.simpleMessage("Save Page"),
     "sebha": MessageLookupByLibrary.simpleMessage("Sebha"),
@@ -87,8 +111,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeUntilNextPrayer": MessageLookupByLibrary.simpleMessage(
       "Time left until prayer",
     ),
+    "toGetYourLocationAndContinue": MessageLookupByLibrary.simpleMessage(
+      "To get your location and continue",
+    ),
     "todaysFeed": MessageLookupByLibrary.simpleMessage("Today\'s Feed:"),
     "todaysduaa": MessageLookupByLibrary.simpleMessage("Today\'s Duaa"),
+    "upgradeToPremium": MessageLookupByLibrary.simpleMessage(
+      "Upgrade to Premium",
+    ),
     "verse": MessageLookupByLibrary.simpleMessage("Verse"),
     "welcometoTalktoQuran": MessageLookupByLibrary.simpleMessage(
       "Welcome to Talk to Quran",
@@ -96,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "whatIsYourMood": MessageLookupByLibrary.simpleMessage(
       "What is your mood?",
     ),
+    "year": MessageLookupByLibrary.simpleMessage("year"),
     "yourPhoneMayBlockAzanNotificationsInBackground":
         MessageLookupByLibrary.simpleMessage(
           "Your phone may block Azan notifications in the background.",
