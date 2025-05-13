@@ -9,6 +9,7 @@ import 'package:qurani_22/controllers/home_controller.dart';
 import 'package:qurani_22/controllers/in_app_purchases_controller.dart';
 import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/controllers/start_controller.dart';
+import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
 import 'package:qurani_22/views/tabs_screen/screens/plans_screen.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/feautures_home_container.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/prayer_count.dart';
@@ -29,6 +30,7 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+    FlutterQuran().init();
     Provider.of<EmotionsController>(context,listen: false,).getEmotions(context);
     Provider.of<EmotionsController>(context,listen: false,).getEmotionsLimit(context);
     Provider.of<HomeController>(context, listen: false).getPrayerTimes(context);

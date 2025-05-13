@@ -27,7 +27,7 @@ class AdsController with ChangeNotifier {
   /// Load Banner Ad
   void loadBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/8897758339' : 'ca-app-pub-3863114333197264/9220357819',
+      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/8897758339' : 'ca-app-pub-3940256099942544/6300978111',
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
@@ -45,7 +45,7 @@ class AdsController with ChangeNotifier {
 
   void loadResultBannerAd() {
     _resultBannerAd = BannerAd(
-      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/8897758339' : 'ca-app-pub-3863114333197264/9220357819',
+      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/8897758339' : 'ca-app-pub-3940256099942544/6300978111',
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
@@ -64,7 +64,7 @@ class AdsController with ChangeNotifier {
   /// Load Interstitial Ad
   void loadInterstitialAd() {
     InterstitialAd.load(
-      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/9569177333' : 'ca-app-pub-3863114333197264/1067870786',
+      adUnitId: Platform.isIOS? 'ca-app-pub-3863114333197264/9569177333' : 'ca-app-pub-3940256099942544/1033173712',
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {

@@ -9,9 +9,9 @@ import 'package:quran/quran.dart' as quran;
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/generated/l10n.dart';
 import 'package:qurani_22/json/quran_provider.dart';
+import 'package:qurani_22/packages/flutter_quran/lib/src/flutter_quran_screen.dart';
+import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/custom_floating_bar.dart';
-import 'package:qurani_22/views/tabs_screen/widgets/quran_tafser_page.dart';
-import 'package:qurani_22/views/tabs_screen/widgets/quran_text_widget.dart';
 
 class MushafPageView extends StatefulWidget {
   const MushafPageView({super.key, required this.pageNumber});
@@ -22,7 +22,6 @@ class MushafPageView extends StatefulWidget {
 }
 
 class _MushafPageViewState extends State<MushafPageView> {
-  late PageController _pageController;
   int index = 0;
   List<dynamic> pageData = [];
   bool isTafseerPage = false;
@@ -31,7 +30,6 @@ class _MushafPageViewState extends State<MushafPageView> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: widget.pageNumber);
     index = widget.pageNumber;
     pageData = quran.getPageData(index);
     final quranProvider = Provider.of<QuranController>(context,listen: false);
@@ -104,7 +102,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                 onPressed: () {
                   Navigator.pop(context);
                   int page = quran.getPageNumber(controller.selectedSurah, controller.selectedAyah);
-                  _pageController.jumpToPage(page);
+                  FlutterQuran().navigateToPage(page);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: darkBlue,
@@ -156,7 +154,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                             });
                           } else if (value == 2) {
                             // Go to Marked Page
-                            _pageController.jumpToPage(quranProvider.savedPage!);
+                            FlutterQuran().navigateToPage(quranProvider.savedPage!);
                           } else if (value == 3) {
                             setState(() {
                               isTafseerPage = !isTafseerPage;
@@ -218,15 +216,17 @@ class _MushafPageViewState extends State<MushafPageView> {
                 ),
                 const Divider(),
                 Expanded(
-                  child: PageView.builder(
-                    reverse: true,
-                    controller: _pageController,
-                    itemCount: 605,
-                    onPageChanged: (a) {
+                  child: FlutterQuranScreen(
+                  useDefaultAppBar: false,
+                  showBottomWidget: false,
+                  onLongPress: () {
+                    log('best hamo fel donia');
+                  },
+                  onPageChanged: (a) {
                       setState(() {
-                        quranProvider.saveLastRead(a);
-                        index = a;
-                        pageData = quran.getPageData(index);
+                        quranProvider.saveLastRead(a+1);
+                        index = a + 1;
+                        pageData = quran.getPageData(a + 1);
                         if(index == quranProvider.savedPage){
                           isSavedPage = true;
                         }else{
@@ -234,22 +234,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                         }
                       });
                     },
-                    itemBuilder: (context, pageIndex) {
-                      if (pageIndex == 0) {
-                        return Container(
-                          color: Colors.white,
-                          child: Image.asset(
-                            "assets/images/mushaf_blue.png",
-                            fit: BoxFit.contain,
-                          ),
-                        );
-                      }
-                      return Container(
-                        padding: const EdgeInsets.all(0.0),
-                        child: isTafseerPage ? QuranTafserPage(index: pageIndex) : QuranTextWidget(index: pageIndex),
-                      );
-                    },
-                  ),
+                 ),
                 ),
               ],
             ),

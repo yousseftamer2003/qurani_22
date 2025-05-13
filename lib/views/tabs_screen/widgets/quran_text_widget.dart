@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:qurani_22/json/quran_provider.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/basmalah.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/header_widget.dart';
@@ -26,9 +25,9 @@ class QuranTextWidget extends StatelessWidget {
           width: double.infinity,
           child: RichText(
             textDirection: TextDirection.rtl,
-            textAlign: (index == 1 || index == 2)
-                ? TextAlign.center
-                : TextAlign.right,
+            // textAlign: (index == 1 || index == 2)
+            //     ? TextAlign.center
+            //     : TextAlign.justify,
             softWrap: true,
             locale: const Locale("ar"),
             text: TextSpan(
@@ -57,25 +56,24 @@ class QuranTextWidget extends StatelessWidget {
                     }
                   }
 
-                  // Add Quranic Verse with Long Press Gesture
                   spans.add(TextSpan(
                     recognizer: LongPressGestureRecognizer()
                       ..onLongPress = () {
                         showOptionsMenu(context, e["surah"], i);
                       },
                     text: getVerse(e["surah"], i,verseEndSymbol: true),
-                    style: GoogleFonts.scheherazadeNew(
+                    style: TextStyle(
                       color: Colors.black,
-                      height: (index == 1 || index == 2) ? 2.h : index == 591? 1.7.h : 1.9.h,
-                      wordSpacing: -3.w,
-                      fontSize: index == 1 || index == 2
-                          ? 23.sp
-                          : index == 145 || index == 201
-                              ? index == 532 || index == 533
-                                  ? 18.5.sp
-                                  : 17.6.sp
-                              : 17.0.sp,
-                      backgroundColor: Colors.transparent,
+                      // height: (index == 1 || index == 2) ? 2.h : index == 591? 1.7.h : 1.7.h,
+                      // fontSize: index == 1 || index == 2
+                      //     ? 23.sp
+                      //     : index == 145 || index == 201
+                      //         ? index == 532 || index == 533
+                      //             ? 18.5.sp
+                      //             : 17.6.sp
+                      //         : 17.0.sp,
+                      // backgroundColor: Colors.transparent,
+                      fontFamily: 'Scheherazade New'
                     ),
                   ));
                 }
