@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
@@ -9,6 +11,7 @@ import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/controllers/notifications_controller.dart';
 import 'package:qurani_22/controllers/start_controller.dart';
 import 'package:qurani_22/controllers/user_controller.dart';
+import 'package:qurani_22/views/start/screens/onboarding_screen.dart';
 import 'package:qurani_22/views/start/screens/start_screen.dart';
 import 'package:qurani_22/views/tabs_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,11 +40,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 3), () async {
       if (isFirstTime) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StartScreen()));
         prefs.setBool('isFirstTime', false);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OnboardingScreen()));
       } else {
-        Provider.of<StartController>(context, listen: false).getCurrentLocation(context,isFirstTime: false);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const TabsScreen()));
+        final startController = Provider.of<StartController>(context, listen: false);
+        await startController.getCurrentLocation(context,isFirstTime: false);
+        log('address: ${startController.address}');
+        if(startController.address == 'No Address'){
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (ctx)=> const StartScreen())
+          );
+        }else{
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const TabsScreen()));
+        }
       }
    });
 

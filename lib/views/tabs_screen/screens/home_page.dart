@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:qurani_22/constants/colors.dart';
@@ -12,6 +11,7 @@ import 'package:qurani_22/controllers/start_controller.dart';
 import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
 import 'package:qurani_22/views/tabs_screen/screens/plans_screen.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/feautures_home_container.dart';
+import 'package:qurani_22/views/tabs_screen/widgets/gradient_text.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/prayer_count.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/prayer_times_container.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/talk_to_quran_button.dart';
@@ -23,17 +23,27 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   bool isClicked = false;
   bool isResultShown = false;
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-    FlutterQuran().init();
-    Provider.of<EmotionsController>(context,listen: false,).getEmotions(context);
-    Provider.of<EmotionsController>(context,listen: false,).getEmotionsLimit(context);
-    Provider.of<HomeController>(context, listen: false).getPrayerTimes(context);
+      FlutterQuran().init();
+      Provider.of<EmotionsController>(
+        context,
+        listen: false,
+      ).getEmotions(context);
+      Provider.of<EmotionsController>(
+        context,
+        listen: false,
+      ).getEmotionsLimit(context);
+      Provider.of<HomeController>(
+        context,
+        listen: false,
+      ).getPrayerTimes(context);
     });
     super.initState();
   }
@@ -83,7 +93,7 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
 
                 if (!isClicked)
                   Positioned(
-                    top: 12,
+                    top: 9,
                     right: 8,
                     child: TextButton(
                       onPressed: () {
@@ -93,8 +103,22 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
                           ),
                         );
                       },
-                      child: SvgPicture.asset('assets/images/prem_user.svg',width: 100)),
-                    
+                      child: GradientText(
+                        text: 'Get Pro',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFFDC830),
+                            Color(0xFFF37335),
+                          ], // golden gradient
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                    ),
                   ),
 
                 Positioned(
@@ -158,7 +182,7 @@ class _HomePageState extends State<HomePage>with SingleTickerProviderStateMixin 
                             const FeauturesHomeContainer(),
                             const Spacer(),
                             TalkToQuranButton(),
-                            const SizedBox(height: 60,)
+                            const SizedBox(height: 60),
                           ],
                         ),
                       ),

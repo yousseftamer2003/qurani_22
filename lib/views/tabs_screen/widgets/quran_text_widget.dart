@@ -67,7 +67,7 @@ class QuranTextWidget extends StatelessWidget {
                       // height: (index == 1 || index == 2) ? 2.h : index == 591? 1.7.h : 1.7.h,
                       // fontSize: index == 1 || index == 2
                       //     ? 23.sp
-                      //     : index == 145 || index == 201
+                      //     : index == 145 || index == 201z
                       //         ? index == 532 || index == 533
                       //             ? 18.5.sp
                       //             : 17.6.sp

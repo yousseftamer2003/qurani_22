@@ -198,7 +198,7 @@ class _StartScreenState extends State<StartScreen> {
                           children: [
                             GradientButton(
                               onPressed: () {
-                                if (addressProvider.address.isEmpty) {
+                                if (addressProvider.address.isEmpty || addressProvider.address == 'No Address') {
                                   showDialog(
                                     context: context,
                                     builder:

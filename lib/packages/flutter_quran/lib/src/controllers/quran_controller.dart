@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quran/flutter_quran.dart';
@@ -69,35 +71,52 @@ class QuranCubit extends Cubit<List<QuranPage>> {
       surahs.last.endPage = ayahs.last.page;
       surahs.last.ayahs = thisSurahAyahs;
       for (QuranPage staticPage in staticPages) {
-        List<Ayah> ayas = [];
-        for (Ayah aya in staticPage.ayahs) {
-          if (aya.ayahNumber == 1 && ayas.isNotEmpty) {
-            ayas.clear();
-          }
-          if (aya.ayah.contains('\n')) {
-            final lines = aya.ayah.split('\n');
-            for (int i = 0; i < lines.length; i++) {
-              bool centered = false;
-              if ((aya.centered && i == lines.length - 2)) {
-                centered = true;
-              }
-              final a = Ayah.fromAya(
-                  ayah: aya,
-                  aya: lines[i],
-                  ayaText: lines[i],
-                  centered: centered);
-              ayas.add(a);
-              if (i < lines.length - 1) {
-                staticPage.lines.add(Line([...ayas]));
-                ayas.clear();
-              }
-            }
-          } else {
-            ayas.add(aya);
-          }
-        }
-        ayas.clear();
-      }
+  List<Ayah> lineAyahs = [];
+
+  for (Ayah aya in staticPage.ayahs) {
+    if (aya.ayahNumber == 1 && lineAyahs.isNotEmpty) {
+      // Start new surah: clear existing line buffer
+      lineAyahs.clear();
+    }
+
+    if (aya.ayah.contains('\n')) {
+      final parts = aya.ayah.split('\n');
+      final codeParts = aya.codev2?.split('\n') ?? [];
+
+for (int i = 0; i < parts.length; i++) {
+  final partialText = parts[i].trim();
+  final partialCode = i < codeParts.length ? codeParts[i] : '';
+
+  final clonedAyah = Ayah.fromAya(
+    ayah: aya,
+    aya: aya.ayah, // full ayah for metadata
+    ayaText: partialText,
+    centered: aya.centered && i == parts.length - 2,
+  );
+  clonedAyah.codev2 = partialCode;
+
+  lineAyahs.add(clonedAyah);
+
+  if (i < parts.length - 1) {
+    staticPage.lines.add(Line([...lineAyahs]));
+    lineAyahs.clear();
+  }
+}
+
+    } else {
+      // No line break in ayah, just add to current line
+      lineAyahs.add(aya);
+    }
+  }
+
+  // Push any remaining ayahs as the final line of the page
+  if (lineAyahs.isNotEmpty) {
+    staticPage.lines.add(Line([...lineAyahs]));
+    lineAyahs.clear();
+  }
+}
+
+
       emit(staticPages);
     }
   }

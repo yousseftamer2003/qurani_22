@@ -24,14 +24,38 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
     "Doaa": MessageLookupByLibrary.simpleMessage("Doaa"),
+    "Fasterexperienceandexclusiveupdates": MessageLookupByLibrary.simpleMessage(
+      "Faster experience and exclusive updates",
+    ),
+    "ForYou": MessageLookupByLibrary.simpleMessage("For You"),
+    "GetStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "GoToSavedPage": MessageLookupByLibrary.simpleMessage("Go to Saved Page"),
     "Goto": MessageLookupByLibrary.simpleMessage("Goto"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("Mushaf"),
-    "NoAds": MessageLookupByLibrary.simpleMessage("No ads"),
+    "NoAds": MessageLookupByLibrary.simpleMessage("Full Quran with no ads"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("No Saved Page"),
+    "PersonalizedDuasforyourfeelings": MessageLookupByLibrary.simpleMessage(
+      "Personalized Duas for your feelings",
+    ),
+    "Quran": MessageLookupByLibrary.simpleMessage("Quran"),
+    "Qurancaht": MessageLookupByLibrary.simpleMessage("Quran Chat"),
     "Regenerate": MessageLookupByLibrary.simpleMessage("Regenerate"),
     "Shurooq": MessageLookupByLibrary.simpleMessage("Shurooq"),
-    "UnlockPremium": MessageLookupByLibrary.simpleMessage("Unlock Premium"),
+    "SmartTasbihtotrackyourdhikr": MessageLookupByLibrary.simpleMessage(
+      "Smart Tasbih to track your dhikr",
+    ),
+    "Subscribenowandfeelthedifference": MessageLookupByLibrary.simpleMessage(
+      "Subscribe now and feel the difference.",
+    ),
+    "UnlockPremium": MessageLookupByLibrary.simpleMessage(
+      "Go Premium and unlock everything:",
+    ),
+    "WheretheQuranspeakstoyourheart": MessageLookupByLibrary.simpleMessage(
+      "Where the Quran speaks to your heart",
+    ),
+    "Yourheartdeservesthefullexperience": MessageLookupByLibrary.simpleMessage(
+      "Your heart deserves the full experience.",
+    ),
     "addressRequired": MessageLookupByLibrary.simpleMessage(
       "Address is required",
     ),
@@ -53,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
+    "getPro": MessageLookupByLibrary.simpleMessage("Get Pro"),
     "go": MessageLookupByLibrary.simpleMessage("Go"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
       "Here’s some comfort for what you’re going through.",
@@ -60,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "holdVerseToListen": MessageLookupByLibrary.simpleMessage(
       "Hold verse to listen",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "isha": MessageLookupByLibrary.simpleMessage("Isha"),
     "juz": MessageLookupByLibrary.simpleMessage("Juz"),
     "lang": MessageLookupByLibrary.simpleMessage("Lang"),
@@ -73,9 +99,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "month": MessageLookupByLibrary.simpleMessage("month"),
     "nextPrayer": MessageLookupByLibrary.simpleMessage("Next Prayer:"),
     "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
-      "No generation limits",
+      "Chat with the Quran anytime, with no limits",
     ),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
+    "onboardingText": MessageLookupByLibrary.simpleMessage(
+      "Quran chat is not just quran reader. its spiritual experience that makes you feel like the Quran is speaking directly to you.",
+    ),
     "page": MessageLookupByLibrary.simpleMessage("Page"),
     "pageForm": MessageLookupByLibrary.simpleMessage("Page Form"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("Pick your plan"),

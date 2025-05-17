@@ -52,26 +52,35 @@ Future<void> getCurrentLocation(context,{required bool isFirstTime}) async {
   }else{
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(S.of(context).locationRequired),
-        content: Text(S.of(context).pleaseEnableLocationServicesForExactPrayerTimes),
-        actions: [
-          TextButton(
-            child: Text(S.of(context).ok, style: const TextStyle(color: darkBlue)),
-            onPressed: () async {
-              Navigator.pop(context);
-              _isLoading = false;
-              await Geolocator.openLocationSettings();
-              notifyListeners();
-            },
-          )
-        ],
-      ),
-    );
-    return;
-  }
+  _isLoading = true; // Start loading
+  notifyListeners();
+
+  await showDialog(
+    context: context,
+    barrierDismissible: true, // Allow tapping outside to close
+    builder: (context) => AlertDialog(
+      title: Text(S.of(context).locationRequired),
+      content: Text(S.of(context).pleaseEnableLocationServicesForExactPrayerTimes),
+      actions: [
+        TextButton(
+          child: Text(S.of(context).ok, style: const TextStyle(color: darkBlue)),
+          onPressed: () async {
+            Navigator.pop(context, true); // return true
+          },
+        )
+      ],
+    ),
+  ).then((value) async {
+    _isLoading = false;
+    notifyListeners();
+    if (value == true) {
+      _isLoading = false;
+      await Geolocator.openLocationSettings();
+    }
+  });
+
+  return;
+}
 
   PermissionStatus status = await Permission.location.status;
   

@@ -24,22 +24,46 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Azkar": MessageLookupByLibrary.simpleMessage("أذكار"),
     "Doaa": MessageLookupByLibrary.simpleMessage("دعاء"),
+    "Fasterexperienceandexclusiveupdates": MessageLookupByLibrary.simpleMessage(
+      "تحديثات مستمرة وتجربة أسرع",
+    ),
+    "ForYou": MessageLookupByLibrary.simpleMessage("تصفح"),
+    "GetStarted": MessageLookupByLibrary.simpleMessage("ابدء"),
     "GoToSavedPage": MessageLookupByLibrary.simpleMessage(
       "الذهاب إلى الصفحة المحفوظة",
     ),
     "Goto": MessageLookupByLibrary.simpleMessage("اذهب إلى"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("مصحف"),
-    "NoAds": MessageLookupByLibrary.simpleMessage("لا اعلانات"),
+    "NoAds": MessageLookupByLibrary.simpleMessage("مصحف كامل بدون إعلانات"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("لا توجد صفحة محفوظة"),
+    "PersonalizedDuasforyourfeelings": MessageLookupByLibrary.simpleMessage(
+      "أدعية مختارة تناسب حالتك",
+    ),
+    "Quran": MessageLookupByLibrary.simpleMessage("القرآن"),
+    "Qurancaht": MessageLookupByLibrary.simpleMessage("قرآن شات"),
     "Regenerate": MessageLookupByLibrary.simpleMessage("إعادة إنشاء"),
     "Shurooq": MessageLookupByLibrary.simpleMessage("الشروق"),
-    "UnlockPremium": MessageLookupByLibrary.simpleMessage("فتح المميز"),
+    "SmartTasbihtotrackyourdhikr": MessageLookupByLibrary.simpleMessage(
+      "سبحة ذكية تتابع أذكارك",
+    ),
+    "Subscribenowandfeelthedifference": MessageLookupByLibrary.simpleMessage(
+      "اشترك وعيش التجربة بدون قيود.",
+    ),
+    "UnlockPremium": MessageLookupByLibrary.simpleMessage(
+      "اشترك في البريميوم واستمتع بكل ده بدون حدود",
+    ),
+    "WheretheQuranspeakstoyourheart": MessageLookupByLibrary.simpleMessage(
+      "حيث القرآن يتحدث لقلبك",
+    ),
+    "Yourheartdeservesthefullexperience": MessageLookupByLibrary.simpleMessage(
+      "قلبك يستاهل النسخة الكاملة.",
+    ),
     "addressRequired": MessageLookupByLibrary.simpleMessage("العنوان مطلوب"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "chooseYourEmotion": MessageLookupByLibrary.simpleMessage(
-      "اختر شعورك وسوف نحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
+      "اختر شعورك وسوف تحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
     ),
     "clickHereToCount": MessageLookupByLibrary.simpleMessage("اضغط هنا للعد"),
     "clickOn": MessageLookupByLibrary.simpleMessage("اضغط على"),
@@ -51,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
+    "getPro": MessageLookupByLibrary.simpleMessage("اشترك في البريميوم"),
     "go": MessageLookupByLibrary.simpleMessage("اذهب"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
       "ها هي كلمات تواسيك فيما تمر به.",
@@ -58,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "holdVerseToListen": MessageLookupByLibrary.simpleMessage(
       "اضغط على الآية للاستماع",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "isha": MessageLookupByLibrary.simpleMessage("العشاء"),
     "juz": MessageLookupByLibrary.simpleMessage("جزء"),
     "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
@@ -69,9 +95,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "month": MessageLookupByLibrary.simpleMessage("شهر"),
     "nextPrayer": MessageLookupByLibrary.simpleMessage("الصلاة التالية:"),
     "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
-      "لا حدود التوليد",
+      "تحدث مع القرآن وقت ما تحب، من غير ليمت",
     ),
     "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
+    "onboardingText": MessageLookupByLibrary.simpleMessage(
+      "قرآن شات مش بس تطبيق لقراءة القرآن… دي تجربة روحانية هتحس فيها إن القرآن بيكلمك إنت شخصيًا.",
+    ),
     "page": MessageLookupByLibrary.simpleMessage("صفحة"),
     "pageForm": MessageLookupByLibrary.simpleMessage("نموذج الصفحة"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("اختر خطتك"),
@@ -83,7 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnableLocationServicesForExactPrayerTimes":
         MessageLookupByLibrary.simpleMessage(
-          "الرجاء تفعيل خدمات الموقع للوقت الصلاة المطلوب.",
+          "الرجاء تفعيل الموقع للحصول على اوقات الصلاة الصحيحة و التمكن من الدخول",
         ),
     "reset": MessageLookupByLibrary.simpleMessage("اعادة"),
     "restorePurchases": MessageLookupByLibrary.simpleMessage(
@@ -108,11 +137,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "الوقت المتبقي حتى الصلاة",
     ),
     "toGetYourLocationAndContinue": MessageLookupByLibrary.simpleMessage(
-      "للحصول على موقعك واستمرار",
+      "للحصول على موقعك و الاستمرار",
     ),
     "todaysFeed": MessageLookupByLibrary.simpleMessage("محتوى اليوم:"),
     "todaysduaa": MessageLookupByLibrary.simpleMessage("ادعية اليوم"),
-    "upgradeToPremium": MessageLookupByLibrary.simpleMessage("ترقية للمميز"),
+    "upgradeToPremium": MessageLookupByLibrary.simpleMessage(
+      "اشترك في البريميوم",
+    ),
     "verse": MessageLookupByLibrary.simpleMessage("آية"),
     "welcometoTalktoQuran": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في التحدث مع القرآن",

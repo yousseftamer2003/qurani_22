@@ -485,25 +485,30 @@ class S {
     return Intl.message('Reset', name: 'reset', desc: '', args: []);
   }
 
-  /// `Unlock Premium`
+  /// `Go Premium and unlock everything:`
   String get UnlockPremium {
     return Intl.message(
-      'Unlock Premium',
+      'Go Premium and unlock everything:',
       name: 'UnlockPremium',
       desc: '',
       args: [],
     );
   }
 
-  /// `No ads`
+  /// `Full Quran with no ads`
   String get NoAds {
-    return Intl.message('No ads', name: 'NoAds', desc: '', args: []);
+    return Intl.message(
+      'Full Quran with no ads',
+      name: 'NoAds',
+      desc: '',
+      args: [],
+    );
   }
 
-  /// `No generation limits`
+  /// `Chat with the Quran anytime, with no limits`
   String get noGenerationLimits {
     return Intl.message(
-      'No generation limits',
+      'Chat with the Quran anytime, with no limits',
       name: 'noGenerationLimits',
       desc: '',
       args: [],
@@ -548,6 +553,106 @@ class S {
   /// `year`
   String get year {
     return Intl.message('year', name: 'year', desc: '', args: []);
+  }
+
+  /// `Quran chat is not just quran reader. its spiritual experience that makes you feel like the Quran is speaking directly to you.`
+  String get onboardingText {
+    return Intl.message(
+      'Quran chat is not just quran reader. its spiritual experience that makes you feel like the Quran is speaking directly to you.',
+      name: 'onboardingText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quran Chat`
+  String get Qurancaht {
+    return Intl.message('Quran Chat', name: 'Qurancaht', desc: '', args: []);
+  }
+
+  /// `Where the Quran speaks to your heart`
+  String get WheretheQuranspeakstoyourheart {
+    return Intl.message(
+      'Where the Quran speaks to your heart',
+      name: 'WheretheQuranspeakstoyourheart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get GetStarted {
+    return Intl.message('Get Started', name: 'GetStarted', desc: '', args: []);
+  }
+
+  /// `Smart Tasbih to track your dhikr`
+  String get SmartTasbihtotrackyourdhikr {
+    return Intl.message(
+      'Smart Tasbih to track your dhikr',
+      name: 'SmartTasbihtotrackyourdhikr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personalized Duas for your feelings`
+  String get PersonalizedDuasforyourfeelings {
+    return Intl.message(
+      'Personalized Duas for your feelings',
+      name: 'PersonalizedDuasforyourfeelings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Faster experience and exclusive updates`
+  String get Fasterexperienceandexclusiveupdates {
+    return Intl.message(
+      'Faster experience and exclusive updates',
+      name: 'Fasterexperienceandexclusiveupdates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your heart deserves the full experience.`
+  String get Yourheartdeservesthefullexperience {
+    return Intl.message(
+      'Your heart deserves the full experience.',
+      name: 'Yourheartdeservesthefullexperience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribe now and feel the difference.`
+  String get Subscribenowandfeelthedifference {
+    return Intl.message(
+      'Subscribe now and feel the difference.',
+      name: 'Subscribenowandfeelthedifference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Pro`
+  String get getPro {
+    return Intl.message('Get Pro', name: 'getPro', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Quran`
+  String get Quran {
+    return Intl.message('Quran', name: 'Quran', desc: '', args: []);
+  }
+
+  /// `For You`
+  String get ForYou {
+    return Intl.message('For You', name: 'ForYou', desc: '', args: []);
   }
 }
 

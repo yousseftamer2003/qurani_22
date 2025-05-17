@@ -14,6 +14,7 @@ class Ayah {
   String ayah;
   final bool sajda;
   bool centered;
+  String? codev2;
 
   Ayah({
     required this.id,
@@ -31,6 +32,7 @@ class Ayah {
     required this.ayahText,
     required this.sajda,
     required this.centered,
+    this.codev2,
   });
 
   Map<String, dynamic> toJson() => {
@@ -46,6 +48,7 @@ class Ayah {
         'aya_text': ayah,
         'aya_text_emlaey': ayahText,
         'centered': centered,
+        'code_v2': codev2
       };
 
   @override
@@ -75,6 +78,7 @@ class Ayah {
       ayahText: json['aya_text_emlaey'],
       sajda: false,
       centered: json['centered'] ?? false,
+      codev2: json['code_v2'],
     );
   }
 
@@ -100,5 +104,6 @@ class Ayah {
         ayahText: ayaText,
         sajda: false,
         centered: centered,
+        codev2: ayah.codev2
       );
 }

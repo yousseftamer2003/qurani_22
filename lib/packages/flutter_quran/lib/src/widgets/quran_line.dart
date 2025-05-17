@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_quran/flutter_quran.dart';
 import 'package:flutter_quran/src/models/quran_page.dart';
@@ -18,33 +16,49 @@ class QuranLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-        fit: boxFit,
-        child: RichText(
-            text: TextSpan(
+      fit: boxFit,
+      child: RichText(
+        text: TextSpan(
           children: line.ayahs.reversed.map((ayah) {
+            final ayahText = ayah.ayah.trim();
+            final match = RegExp(r'([\u0660-\u0669]+)$').firstMatch(ayahText);
+
+            String displayText;
+
+            if (match != null) {
+              // final number = match.group(1)!;
+              // displayText = ayahText.replaceFirst(RegExp(r'([\u0660-\u0669]+)$'), '﴿$number﴾');
+              displayText = ayahText;
+            } else {
+              displayText = ayahText;
+            }
+
             return WidgetSpan(
               child: GestureDetector(
-                onLongPress: (){
-                  showOptionsMenu(context,ayah.surahNumber,ayah.ayahNumber);
+                onLongPress: () {
+                  showOptionsMenu(context, ayah.surahNumber, ayah.ayahNumber);
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
                     color: bookmarksAyahs.contains(ayah.id)
-                        ? Color(bookmarks[bookmarksAyahs.indexOf(ayah.id)]
-                                .colorCode)
-                            .withValues(alpha: 0.7)
-                        : null,
+                        ? Color(bookmarks[bookmarksAyahs.indexOf(ayah.id)].colorCode).withOpacity(0.7): null,
                   ),
                   child: Text(
-                    ayah.ayah,
-                    style: FlutterQuran().hafsStyle,
+                    ayah.codev2!,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22.55,
+                      fontFamily: "QCF_P${ayah.page.toString().padLeft(3, '0')}",
+                      height: 1.2,
+                    ),
                   ),
                 ),
               ),
             );
           }).toList(),
-          style: FlutterQuran().hafsStyle,
-        )));
+        ),
+      ),
+    );
   }
 }

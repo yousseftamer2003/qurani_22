@@ -6,7 +6,6 @@ import 'package:qurani_22/generated/l10n.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/buy_plan_container.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/plan_container.dart';
 
-
 class PlansScreen extends StatefulWidget {
   const PlansScreen({super.key});
 
@@ -16,6 +15,7 @@ class PlansScreen extends StatefulWidget {
 
 class _PlansScreenState extends State<PlansScreen> {
   int selectedPlan = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +23,11 @@ class _PlansScreenState extends State<PlansScreen> {
       appBar: AppBar(
         backgroundColor: darkBlue,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back,color: Colors.white,)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+        ),
       ),
       body: Consumer<InAppPurchasesController>(
         builder: (context, iapProvider, _) {
@@ -37,44 +38,141 @@ class _PlansScreenState extends State<PlansScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 20,),
-                    Text(S.of(context).UnlockPremium,style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.w700),),
-                    const SizedBox(height: 40,),
+                    const SizedBox(height: 20),
+                    Text(
+                      S.of(context).UnlockPremium,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
                     Row(
                       children: [
-                        const Icon(Icons.check_circle_sharp,color: Colors.white,),
-                        const SizedBox(width: 10,),
-                        Text(S.of(context).NoAds,style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w600),),
+                        const Icon(Icons.check_circle_sharp, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text(
+                          S.of(context).NoAds,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ],
                     ),
-                    const SizedBox(height: 20,),
+                    const SizedBox(height: 20),
                     Row(
                       children: [
-                        const Icon(Icons.check_circle_sharp,color: Colors.white,),
-                        const SizedBox(width: 10,),
-                        Text(S.of(context).noGenerationLimits,style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w600),),
+                        const Icon(Icons.check_circle_sharp, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text(
+                          S.of(context).noGenerationLimits,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height*0.2),
-                    Text(S.of(context).pickUrPlan,style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w500),),
-                    const SizedBox(height: 15,),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const Icon(Icons.check_circle_sharp, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text(
+                          S.of(context).SmartTasbihtotrackyourdhikr,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const Icon(Icons.check_circle_sharp, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text(
+                          S.of(context).PersonalizedDuasforyourfeelings,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const Icon(Icons.check_circle_sharp, color: Colors.white),
+                        const SizedBox(width: 10),
+                        Text(
+                          S.of(context).Fasterexperienceandexclusiveupdates,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
+                    // New motivational text
+                    Text(
+                      'Your heart deserves the full experience.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Subscribe now and feel the difference.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    Text(
+                      S.of(context).pickUrPlan,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: List.generate(iapProvider.products.length,
-                      (index) {
-                        final product = iapProvider.products[index];
-                        final String title = product.title.contains('Month') ? S.of(context).month : S.of(context).year;
-                        return PlanContainer(
-                          onTap: (){
-                            setState(() {
-                              selectedPlan = index;
-                            });
-                          },
-                          isChosen: selectedPlan == index, 
-                          price: product.price, 
-                          title: title);
-                      },)
-                    )
+                      children: List.generate(
+                        iapProvider.products.length,
+                        (index) {
+                          final product = iapProvider.products[index];
+                          final String title = product.title.contains('Month')
+                              ? S.of(context).month
+                              : S.of(context).year;
+                          return PlanContainer(
+                            onTap: () {
+                              setState(() {
+                                selectedPlan = index;
+                              });
+                            },
+                            isChosen: selectedPlan == index,
+                            price: product.price,
+                            title: title,
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -82,13 +180,15 @@ class _PlansScreenState extends State<PlansScreen> {
                 bottom: 0,
                 child: BuyPlanContainer(
                   onTap: () {
-                    iapProvider.buySubscription(iapProvider.products[selectedPlan]);
+                    iapProvider.buySubscription(
+                      iapProvider.products[selectedPlan],
+                    );
                   },
                   onTextTapped: () {
                     iapProvider.restorePurchases();
                   },
-                )
-                )
+                ),
+              ),
             ],
           );
         },

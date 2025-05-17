@@ -49,7 +49,10 @@ class GradientBorderButton extends StatelessWidget {
             child: ShaderMask(
               shaderCallback:
                   (bounds) => const LinearGradient(
-                    colors: [Colors.orange, Colors.yellow],
+                    colors: [
+                      Color(0xFFFDC830),
+                      Color(0xFFF37335),
+                      ],
                   ).createShader(bounds),
               child:  Center(
                 child: Text(
@@ -83,10 +86,13 @@ class GradientBorderPainter extends CustomPainter {
     final Paint paint =
         Paint()
           ..shader = const LinearGradient(
-            colors: [Colors.orange, Colors.yellow],
+            colors: [
+                      Color(0xFFFDC830),
+                      Color(0xFFF37335),
+                      ],
           ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 2;
+          ..strokeWidth = 4;
 
     final RRect rRect = RRect.fromRectAndRadius(
       Rect.fromLTWH(0, 0, size.width, size.height),

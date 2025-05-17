@@ -56,7 +56,7 @@ class QuranTafserPage extends StatelessWidget {
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: "QCF_P${index.toString().padLeft(3, "0")}",
+                                fontFamily: "Amiri Quran",
                                 fontSize: 20.sp,
                                 height: 2.h,
                               ),
