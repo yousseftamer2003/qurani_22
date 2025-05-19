@@ -709,6 +709,41 @@ class S {
   String get startNow {
     return Intl.message('Start Now!', name: 'startNow', desc: '', args: []);
   }
+
+  /// `Normal View`
+  String get normalView {
+    return Intl.message('Normal View', name: 'normalView', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `Permission Denied`
+  String get permissionDenied {
+    return Intl.message(
+      'Permission Denied',
+      name: 'permissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission permanently denied.`
+  String get locationPermissionPermanentlyDenied {
+    return Intl.message(
+      'Location permission permanently denied.',
+      name: 'locationPermissionPermanentlyDenied',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

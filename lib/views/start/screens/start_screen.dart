@@ -23,7 +23,9 @@ class _StartScreenState extends State<StartScreen> {
     super.initState();
     Provider.of<QuranController>(context, listen: false).loadJsonAsset();
     Provider.of<LangServices>(context, listen: false).loadLangFromPrefs();
-    Provider.of<StartController>(context,listen: false).getCurrentLocation(context, isFirstTime: true);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<StartController>(context, listen: false).getCurrentLocation(context, isFirstTime: true);
+    });
   }
 
   @override
@@ -149,7 +151,7 @@ class _StartScreenState extends State<StartScreen> {
                         DropdownButtonFormField<String>(
                           value: langProvider.selectedLang,
                           decoration: InputDecoration(
-                            labelText: S.of(context).selectLanguage,
+                            
                             labelStyle: const TextStyle(color: darkBlue),
                             enabledBorder: OutlineInputBorder(
                               borderSide: const BorderSide(

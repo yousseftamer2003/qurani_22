@@ -85,6 +85,9 @@
     "Next": "التالي",
     "WhyWeNeedLocation": "ليه محتاجين اللوكيشن؟",
     "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs": "عشان نوفرلك التجربة الكاملة من خلال توفير توقيتات الصلاة الصحيحة",
-    "startNow": "ابدء دلوقتي"
+    "startNow": "ابدء دلوقتي",
+    "normalView": "الوضع الاساسي",
+    "search": "الغاء",
+    "permissionDenied": "تم رفض الاذن"
     
 }

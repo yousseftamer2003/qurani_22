@@ -181,7 +181,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                           const PopupMenuDivider(),
                           PopupMenuItem(
                             value: 3,
-                            child: Text(S.of(context).pageForm, style: const TextStyle(color: Colors.black)),
+                            child: Text(isTafseerPage ? S.of(context).normalView : S.of(context).pageForm, style: const TextStyle(color: Colors.black)),
                           ),
                           const PopupMenuDivider(),
                           PopupMenuItem(

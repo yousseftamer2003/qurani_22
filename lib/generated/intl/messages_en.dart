@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("Choose Language"),
     "chooseYourEmotion": MessageLookupByLibrary.simpleMessage(
       "Choose your emotion and we will get you an Aya or Duaa to help you get through it.",
@@ -102,6 +103,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "listenToQuran": MessageLookupByLibrary.simpleMessage("Listen to Quran"),
     "listenToVerse": MessageLookupByLibrary.simpleMessage("Listen to verse"),
     "location": MessageLookupByLibrary.simpleMessage("Location"),
+    "locationPermissionPermanentlyDenied": MessageLookupByLibrary.simpleMessage(
+      "Location permission permanently denied.",
+    ),
     "locationRequired": MessageLookupByLibrary.simpleMessage(
       "Location Required",
     ),
@@ -111,12 +115,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
       "Chat with the Quran anytime, with no limits",
     ),
+    "normalView": MessageLookupByLibrary.simpleMessage("Normal View"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onboardingText": MessageLookupByLibrary.simpleMessage(
       "Quran chat is not just quran reader. its spiritual experience that makes you feel like the Quran is speaking directly to you.",
     ),
     "page": MessageLookupByLibrary.simpleMessage("Page"),
     "pageForm": MessageLookupByLibrary.simpleMessage("Tafsir"),
+    "permissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Permission Denied",
+    ),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("Pick your plan"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "Please add an emotion first!",
@@ -136,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "saved successfully!",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sebha": MessageLookupByLibrary.simpleMessage("Sebha"),
     "select": MessageLookupByLibrary.simpleMessage("Select"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),

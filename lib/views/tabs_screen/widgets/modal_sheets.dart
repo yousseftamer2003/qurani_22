@@ -112,6 +112,7 @@ void showOptionsMenu(BuildContext context, int surah, int verse) {
                       setState(() => isPlaying = !isPlaying);
                     },
                   ),
+                  const SizedBox(height: 25),
                   Container(
                     padding: const EdgeInsets.all(16),
                     width: MediaQuery.sizeOf(context).width,

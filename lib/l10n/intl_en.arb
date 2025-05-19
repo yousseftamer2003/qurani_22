@@ -85,6 +85,11 @@
     "Next": "Next",
     "WhyWeNeedLocation": "Why We Need Location?",
     "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs": "To get to you exact prayer time and have the full experience with us.",
-    "startNow": "Start Now!"
+    "startNow": "Start Now!",
+    "normalView": "Normal View",
+    "cancel": "Cancel",
+    "search": "Search",
+    "permissionDenied": "Permission Denied",
+    "locationPermissionPermanentlyDenied": "Location permission permanently denied."
 
 }

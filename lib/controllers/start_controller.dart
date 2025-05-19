@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -42,80 +44,109 @@ class StartController with ChangeNotifier {
 }
 
 
-Future<void> getCurrentLocation(context,{required bool isFirstTime}) async {
-  if(!isFirstTime){
-    final prefs = await SharedPreferences.getInstance();
-    _latitude = prefs.getDouble('latitude') ?? 0.0;
-    _longitude = prefs.getDouble('longitude') ?? 0.0;
-    _address = prefs.getString('address') ?? 'No Address';
-    notifyListeners();
-  }else{
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-  _isLoading = true; // Start loading
-  notifyListeners();
 
-  await showDialog(
-    context: context,
-    barrierDismissible: true, // Allow tapping outside to close
-    builder: (context) => AlertDialog(
-      title: Text(S.of(context).locationRequired),
-      content: Text(S.of(context).pleaseEnableLocationServicesForExactPrayerTimes),
-      actions: [
-        TextButton(
-          child: Text(S.of(context).ok, style: const TextStyle(color: darkBlue)),
-          onPressed: () async {
-            Navigator.pop(context, true); // return true
-          },
-        )
-      ],
-    ),
-  ).then((value) async {
-    _isLoading = false;
+Future<void> getCurrentLocation(BuildContext context, {required bool isFirstTime}) async {
+  try {
+    // Set loading state at the beginning
+    _isLoading = true;
     notifyListeners();
-    if (value == true) {
+
+    // If not first time, load cached location from preferences
+    if (!isFirstTime) {
+      final prefs = await SharedPreferences.getInstance();
+      _latitude = prefs.getDouble('latitude') ?? 0.0;
+      _longitude = prefs.getDouble('longitude') ?? 0.0;
+      _address = prefs.getString('address') ?? 'No Address';
       _isLoading = false;
-      await Geolocator.openLocationSettings();
+      notifyListeners();
+      return;
     }
-  });
 
-  return;
-}
+    // Check if location services are enabled
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      bool shouldOpenSettings = await showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) => AlertDialog(
+          title: Text(S.of(context).locationRequired),
+          content: Text(S.of(context).pleaseEnableLocationServicesForExactPrayerTimes),
+          actions: [
+            TextButton(
+              child: Text(S.of(context).ok, style: const TextStyle(color: darkBlue)),
+              onPressed: () => Navigator.pop(context, true),
+            ),
+            TextButton(
+              child: Text(S.of(context).cancel, style: const TextStyle(color: Colors.grey)),
+              onPressed: () => Navigator.pop(context, false),
+            ),
+          ],
+        ),
+      ) ?? false;
 
-  PermissionStatus status = await Permission.location.status;
-  
-  if (status.isDenied) {
-    status = await Permission.location.request();
-    _isLoading = false;
-    notifyListeners();
-  }
-  
-  if (status.isPermanentlyDenied) {
-    _isLoading = false;
-    notifyListeners();
-    return Future.error('Location permissions are permanently denied');
-  }
-  
-  if (status.isGranted) {
-    // Permission granted, get the location
-    Position position = await Geolocator.getCurrentPosition(
-      locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
-    );
+      if (shouldOpenSettings) {
+        await Geolocator.openLocationSettings();
+      }
+      
+      _isLoading = false;
+      notifyListeners();
+      return;
+    }
+
+    // Check location permission
+    PermissionStatus status = await Permission.location.status;
     
-    _latitude = position.latitude;
-    _longitude = position.longitude;
-    await getAddressFromLatLong(position.latitude, position.longitude);
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setDouble('latitude', _latitude);
-    prefs.setDouble('longitude', _longitude);
-    prefs.setString('address', _address);
+    if (status.isDenied) {
+      status = await Permission.location.request();
+    }
+    
+    if (status.isPermanentlyDenied) {
+      await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(S.of(context).permissionDenied),
+          content: Text(S.of(context).locationPermissionPermanentlyDenied),
+          actions: [
+            TextButton(
+              child: Text(S.of(context).settings),
+              onPressed: () => openAppSettings(),
+            ),
+            TextButton(
+              child: Text(S.of(context).cancel),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+      );
+      _isLoading = false;
+      notifyListeners();
+      return;
+    }
+    
+    if (status.isGranted) {
+      // Permission granted, get the location
+      Position position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+      );
+      
+      _latitude = position.latitude;
+      _longitude = position.longitude;
+      await getAddressFromLatLong(position.latitude, position.longitude);
+      
+      // Save to preferences
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setDouble('latitude', _latitude);
+      prefs.setDouble('longitude', _longitude);
+      prefs.setString('address', _address);
+    }
+  } catch (e) {
+    // Handle any errors
+    debugPrint('Error getting location: $e');
+    _address = 'No Address'; // Reset to default on error
+  } finally {
+    // Always ensure loading is set to false when operation completes
     _isLoading = false;
     notifyListeners();
-  } else {
-    _isLoading = false;
-    notifyListeners();
-    return Future.error('Location permissions denied');
-  }
   }
 }
 }

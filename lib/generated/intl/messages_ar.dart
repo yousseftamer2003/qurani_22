@@ -107,12 +107,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "noGenerationLimits": MessageLookupByLibrary.simpleMessage(
       "تحدث مع القرآن وقت ما تحب، من غير ليمت",
     ),
+    "normalView": MessageLookupByLibrary.simpleMessage("الوضع الاساسي"),
     "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
     "onboardingText": MessageLookupByLibrary.simpleMessage(
       "قرآن شات مش بس تطبيق لقراءة القرآن… دي تجربة روحانية هتحس فيها إن القرآن بيكلمك إنت شخصيًا.",
     ),
     "page": MessageLookupByLibrary.simpleMessage("صفحة"),
     "pageForm": MessageLookupByLibrary.simpleMessage("التفسير"),
+    "permissionDenied": MessageLookupByLibrary.simpleMessage("تم رفض الاذن"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("اختر خطتك"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة شعور أولاً!",
@@ -132,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم الحفظ بنجاح!",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("الغاء"),
     "sebha": MessageLookupByLibrary.simpleMessage("السبحة"),
     "select": MessageLookupByLibrary.simpleMessage("اختيار"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
