@@ -87,7 +87,8 @@
     "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs": "عشان نوفرلك التجربة الكاملة من خلال توفير توقيتات الصلاة الصحيحة",
     "startNow": "ابدء دلوقتي",
     "normalView": "الوضع الاساسي",
-    "search": "الغاء",
-    "permissionDenied": "تم رفض الاذن"
+    "cancel": "الغاء",
+    "permissionDenied": "الصلاحية مرفوضة",
+    "locationPermissionPermanentlyDenied": "تم رفض صلاحية الموقع بشكل دائم"
     
 }

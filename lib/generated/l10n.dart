@@ -720,11 +720,6 @@ class S {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
-  /// `Search`
-  String get search {
-    return Intl.message('Search', name: 'search', desc: '', args: []);
-  }
-
   /// `Permission Denied`
   String get permissionDenied {
     return Intl.message(

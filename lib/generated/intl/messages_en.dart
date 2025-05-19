@@ -144,7 +144,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "saved successfully!",
     ),
-    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sebha": MessageLookupByLibrary.simpleMessage("Sebha"),
     "select": MessageLookupByLibrary.simpleMessage("Select"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),

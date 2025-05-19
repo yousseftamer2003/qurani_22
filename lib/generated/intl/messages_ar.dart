@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addressRequired": MessageLookupByLibrary.simpleMessage("العنوان مطلوب"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
+    "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "chooseYourEmotion": MessageLookupByLibrary.simpleMessage(
       "اختر شعورك وسوف تحصل على اية او دعاء للمساعدة في الوصول له او تخطيه.",
@@ -100,6 +101,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "listenToQuran": MessageLookupByLibrary.simpleMessage("استمع الى القرآن"),
     "listenToVerse": MessageLookupByLibrary.simpleMessage("استماع الاية"),
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
+    "locationPermissionPermanentlyDenied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض صلاحية الموقع بشكل دائم",
+    ),
     "locationRequired": MessageLookupByLibrary.simpleMessage("موقع مطلوب"),
     "maghrib": MessageLookupByLibrary.simpleMessage("المغرب"),
     "month": MessageLookupByLibrary.simpleMessage("شهر"),
@@ -114,7 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "page": MessageLookupByLibrary.simpleMessage("صفحة"),
     "pageForm": MessageLookupByLibrary.simpleMessage("التفسير"),
-    "permissionDenied": MessageLookupByLibrary.simpleMessage("تم رفض الاذن"),
+    "permissionDenied": MessageLookupByLibrary.simpleMessage("الصلاحية مرفوضة"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("اختر خطتك"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة شعور أولاً!",
@@ -134,7 +138,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم الحفظ بنجاح!",
     ),
-    "search": MessageLookupByLibrary.simpleMessage("الغاء"),
     "sebha": MessageLookupByLibrary.simpleMessage("السبحة"),
     "select": MessageLookupByLibrary.simpleMessage("اختيار"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
