@@ -34,8 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Goto": MessageLookupByLibrary.simpleMessage("اذهب إلى"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("مصحف"),
+    "Next": MessageLookupByLibrary.simpleMessage("التالي"),
     "NoAds": MessageLookupByLibrary.simpleMessage("مصحف كامل بدون إعلانات"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("لا توجد صفحة محفوظة"),
+    "Page": MessageLookupByLibrary.simpleMessage("صفحة"),
     "PersonalizedDuasforyourfeelings": MessageLookupByLibrary.simpleMessage(
       "أدعية مختارة تناسب حالتك",
     ),
@@ -49,11 +51,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "Subscribenowandfeelthedifference": MessageLookupByLibrary.simpleMessage(
       "اشترك وعيش التجربة بدون قيود.",
     ),
+    "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs":
+        MessageLookupByLibrary.simpleMessage(
+          "عشان نوفرلك التجربة الكاملة من خلال توفير توقيتات الصلاة الصحيحة",
+        ),
     "UnlockPremium": MessageLookupByLibrary.simpleMessage(
       "اشترك في البريميوم واستمتع بكل ده بدون حدود",
     ),
     "WheretheQuranspeakstoyourheart": MessageLookupByLibrary.simpleMessage(
       "حيث القرآن يتحدث لقلبك",
+    ),
+    "WhyWeNeedLocation": MessageLookupByLibrary.simpleMessage(
+      "ليه محتاجين اللوكيشن؟",
     ),
     "Yourheartdeservesthefullexperience": MessageLookupByLibrary.simpleMessage(
       "قلبك يستاهل النسخة الكاملة.",
@@ -89,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
     "languages": MessageLookupByLibrary.simpleMessage("اللغات"),
     "listenToQuran": MessageLookupByLibrary.simpleMessage("استمع الى القرآن"),
+    "listenToVerse": MessageLookupByLibrary.simpleMessage("استماع الاية"),
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
     "locationRequired": MessageLookupByLibrary.simpleMessage("موقع مطلوب"),
     "maghrib": MessageLookupByLibrary.simpleMessage("المغرب"),
@@ -102,7 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "قرآن شات مش بس تطبيق لقراءة القرآن… دي تجربة روحانية هتحس فيها إن القرآن بيكلمك إنت شخصيًا.",
     ),
     "page": MessageLookupByLibrary.simpleMessage("صفحة"),
-    "pageForm": MessageLookupByLibrary.simpleMessage("نموذج الصفحة"),
+    "pageForm": MessageLookupByLibrary.simpleMessage("التفسير"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("اختر خطتك"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة شعور أولاً!",
@@ -119,6 +129,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "استعادة الشراءات",
     ),
     "savePage": MessageLookupByLibrary.simpleMessage("حفظ الصفحة"),
+    "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم الحفظ بنجاح!",
+    ),
     "sebha": MessageLookupByLibrary.simpleMessage("السبحة"),
     "select": MessageLookupByLibrary.simpleMessage("اختيار"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
@@ -128,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مشاركة كلقطة شاشة",
     ),
     "shareAsText": MessageLookupByLibrary.simpleMessage("مشاركة كنص"),
+    "startNow": MessageLookupByLibrary.simpleMessage("ابدء دلوقتي"),
     "surah": MessageLookupByLibrary.simpleMessage("سورة"),
     "talkToQuran": MessageLookupByLibrary.simpleMessage("تحدث مع القرآن"),
     "theResultWillBeShownHere": MessageLookupByLibrary.simpleMessage(

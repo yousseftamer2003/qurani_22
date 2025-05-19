@@ -36,7 +36,7 @@
     "go": "اذهب",
     "holdVerseToListen": "اضغط على الآية للاستماع",
     "savePage": "حفظ الصفحة",
-    "pageForm": "نموذج الصفحة",
+    "pageForm": "التفسير",
     "listenToQuran": "استمع الى القرآن",
     "juz": "جزء",
     "page": "صفحة",
@@ -78,5 +78,13 @@
     "getPro": "اشترك في البريميوم",
     "home": "الرئيسية",
     "Quran": "القرآن",
-    "ForYou": "تصفح"
+    "ForYou": "تصفح",
+    "listenToVerse": "استماع الاية",
+    "Page": "صفحة",
+    "savedSuccessfully": "تم الحفظ بنجاح!",
+    "Next": "التالي",
+    "WhyWeNeedLocation": "ليه محتاجين اللوكيشن؟",
+    "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs": "عشان نوفرلك التجربة الكاملة من خلال توفير توقيتات الصلاة الصحيحة",
+    "startNow": "ابدء دلوقتي"
+    
 }

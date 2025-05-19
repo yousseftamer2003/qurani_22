@@ -85,12 +85,14 @@ Future<void> getCurrentLocation(context,{required bool isFirstTime}) async {
   PermissionStatus status = await Permission.location.status;
   
   if (status.isDenied) {
-    
     status = await Permission.location.request();
+    _isLoading = false;
+    notifyListeners();
   }
   
   if (status.isPermanentlyDenied) {
-    
+    _isLoading = false;
+    notifyListeners();
     return Future.error('Location permissions are permanently denied');
   }
   
@@ -110,6 +112,8 @@ Future<void> getCurrentLocation(context,{required bool isFirstTime}) async {
     _isLoading = false;
     notifyListeners();
   } else {
+    _isLoading = false;
+    notifyListeners();
     return Future.error('Location permissions denied');
   }
   }

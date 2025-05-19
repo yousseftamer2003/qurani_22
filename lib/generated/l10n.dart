@@ -305,9 +305,9 @@ class S {
     return Intl.message('Save Page', name: 'savePage', desc: '', args: []);
   }
 
-  /// `Page Form`
+  /// `Tafsir`
   String get pageForm {
-    return Intl.message('Page Form', name: 'pageForm', desc: '', args: []);
+    return Intl.message('Tafsir', name: 'pageForm', desc: '', args: []);
   }
 
   /// `Listen to Quran`
@@ -653,6 +653,61 @@ class S {
   /// `For You`
   String get ForYou {
     return Intl.message('For You', name: 'ForYou', desc: '', args: []);
+  }
+
+  /// `Listen to verse`
+  String get listenToVerse {
+    return Intl.message(
+      'Listen to verse',
+      name: 'listenToVerse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Page`
+  String get Page {
+    return Intl.message('Page', name: 'Page', desc: '', args: []);
+  }
+
+  /// `saved successfully!`
+  String get savedSuccessfully {
+    return Intl.message(
+      'saved successfully!',
+      name: 'savedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get Next {
+    return Intl.message('Next', name: 'Next', desc: '', args: []);
+  }
+
+  /// `Why We Need Location?`
+  String get WhyWeNeedLocation {
+    return Intl.message(
+      'Why We Need Location?',
+      name: 'WhyWeNeedLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To get to you exact prayer time and have the full experience with us.`
+  String get ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs {
+    return Intl.message(
+      'To get to you exact prayer time and have the full experience with us.',
+      name: 'ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Now!`
+  String get startNow {
+    return Intl.message('Start Now!', name: 'startNow', desc: '', args: []);
   }
 }
 

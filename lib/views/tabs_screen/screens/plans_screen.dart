@@ -22,6 +22,7 @@ class _PlansScreenState extends State<PlansScreen> {
       backgroundColor: darkBlue,
       appBar: AppBar(
         backgroundColor: darkBlue,
+        elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -38,7 +39,7 @@ class _PlansScreenState extends State<PlansScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     Text(
                       S.of(context).UnlockPremium,
                       style: TextStyle(
@@ -47,7 +48,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 30),
                     Row(
                       children: [
                         const Icon(Icons.check_circle_sharp, color: Colors.white),
@@ -62,7 +63,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 12),
                     Row(
                       children: [
                         const Icon(Icons.check_circle_sharp, color: Colors.white),
@@ -77,7 +78,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 12),
                     Row(
                       children: [
                         const Icon(Icons.check_circle_sharp, color: Colors.white),
@@ -92,7 +93,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 12),
                     Row(
                       children: [
                         const Icon(Icons.check_circle_sharp, color: Colors.white),
@@ -107,7 +108,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 12),
                     Row(
                       children: [
                         const Icon(Icons.check_circle_sharp, color: Colors.white),
@@ -122,10 +123,10 @@ class _PlansScreenState extends State<PlansScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.045),
                     // New motivational text
                     Text(
-                      'Your heart deserves the full experience.',
+                      S.of(context).Yourheartdeservesthefullexperience,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
@@ -134,7 +135,7 @@ class _PlansScreenState extends State<PlansScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Subscribe now and feel the difference.',
+                      S.of(context).Subscribenowandfeelthedifference,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,

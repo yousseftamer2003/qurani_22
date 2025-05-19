@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/generated/l10n.dart';
-import 'package:qurani_22/json/quran_provider.dart';
-import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
+import 'package:qurani_22/packages/quran_library/lib/flutter_quran_utils.dart';
 import 'package:qurani_22/views/tabs_screen/screens/mushaf_page_view.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/custom_floating_bar.dart';
 
@@ -18,12 +18,6 @@ class QuranPage extends StatefulWidget {
 
 class _QuranPageState extends State<QuranPage> {
   @override
-  void initState() {
-    Provider.of<QuranController>(context, listen: false).loadSavedPage();
-    Provider.of<QuranController>(context, listen: false).loadLastRead();
-    super.initState();
-  }
-  @override
   Widget build(BuildContext context) {
     final quranProvider = Provider.of<QuranController>(context,listen: false);
     return Scaffold(
@@ -34,7 +28,7 @@ class _QuranPageState extends State<QuranPage> {
           TextButton(
           onPressed: (){
             if(quranProvider.savedPage != null){
-              FlutterQuran().navigateToPage(quranProvider.savedPage!);
+              QuranLibrary().jumpToPage(quranProvider.savedPage!);
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -57,7 +51,7 @@ class _QuranPageState extends State<QuranPage> {
             if(quranProvider.lastReadPage != null)
             GestureDetector(
               onTap: (){
-                FlutterQuran().navigateToPage(quranProvider.lastReadPage!);
+                QuranLibrary().jumpToPage(quranProvider.lastReadPage!);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -101,7 +95,7 @@ class _QuranPageState extends State<QuranPage> {
                   return GestureDetector(
               onTap: () {
                 int pageNumber = quran.getPageNumber(surahNumber, 1);
-                FlutterQuran().navigateToPage(pageNumber);
+                QuranLibrary().jumpToPage(pageNumber);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

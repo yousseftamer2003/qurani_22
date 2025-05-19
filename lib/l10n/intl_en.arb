@@ -36,7 +36,7 @@
     "go": "Go",
     "holdVerseToListen": "Hold verse to listen",
     "savePage": "Save Page",
-    "pageForm": "Page Form",
+    "pageForm": "Tafsir",
     "listenToQuran": "Listen to Quran",
     "juz": "Juz",
     "page": "Page",
@@ -78,6 +78,13 @@
     "getPro": "Get Pro",
     "home": "Home",
     "Quran": "Quran",
-    "ForYou": "For You"
+    "ForYou": "For You",
+    "listenToVerse": "Listen to verse",
+    "Page": "Page",
+    "savedSuccessfully": "saved successfully!",
+    "Next": "Next",
+    "WhyWeNeedLocation": "Why We Need Location?",
+    "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs": "To get to you exact prayer time and have the full experience with us.",
+    "startNow": "Start Now!"
 
 }

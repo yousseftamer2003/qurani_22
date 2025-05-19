@@ -1,9 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart';
-import 'package:qurani_22/json/quran_provider.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/basmalah.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/header_widget.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/modal_sheets.dart'; // Add this import

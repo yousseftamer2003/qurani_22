@@ -6,7 +6,7 @@ import 'package:qurani_22/controllers/auto_start_helper.dart';
 import 'package:qurani_22/controllers/lang_controller.dart';
 import 'package:qurani_22/controllers/start_controller.dart';
 import 'package:qurani_22/generated/l10n.dart';
-import 'package:qurani_22/json/quran_provider.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
 import 'package:qurani_22/views/start/widgets/gradient_button.dart';
 import 'package:qurani_22/views/tabs_screen.dart';
 

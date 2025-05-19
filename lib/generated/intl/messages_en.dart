@@ -32,8 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "GoToSavedPage": MessageLookupByLibrary.simpleMessage("Go to Saved Page"),
     "Goto": MessageLookupByLibrary.simpleMessage("Goto"),
     "Mushaf": MessageLookupByLibrary.simpleMessage("Mushaf"),
+    "Next": MessageLookupByLibrary.simpleMessage("Next"),
     "NoAds": MessageLookupByLibrary.simpleMessage("Full Quran with no ads"),
     "NoSavedPage": MessageLookupByLibrary.simpleMessage("No Saved Page"),
+    "Page": MessageLookupByLibrary.simpleMessage("Page"),
     "PersonalizedDuasforyourfeelings": MessageLookupByLibrary.simpleMessage(
       "Personalized Duas for your feelings",
     ),
@@ -47,11 +49,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "Subscribenowandfeelthedifference": MessageLookupByLibrary.simpleMessage(
       "Subscribe now and feel the difference.",
     ),
+    "ToGetToYouExactPrayerTimeAndHaveTheFullExperienceWithUs":
+        MessageLookupByLibrary.simpleMessage(
+          "To get to you exact prayer time and have the full experience with us.",
+        ),
     "UnlockPremium": MessageLookupByLibrary.simpleMessage(
       "Go Premium and unlock everything:",
     ),
     "WheretheQuranspeakstoyourheart": MessageLookupByLibrary.simpleMessage(
       "Where the Quran speaks to your heart",
+    ),
+    "WhyWeNeedLocation": MessageLookupByLibrary.simpleMessage(
+      "Why We Need Location?",
     ),
     "Yourheartdeservesthefullexperience": MessageLookupByLibrary.simpleMessage(
       "Your heart deserves the full experience.",
@@ -91,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lang": MessageLookupByLibrary.simpleMessage("Lang"),
     "languages": MessageLookupByLibrary.simpleMessage("Languages"),
     "listenToQuran": MessageLookupByLibrary.simpleMessage("Listen to Quran"),
+    "listenToVerse": MessageLookupByLibrary.simpleMessage("Listen to verse"),
     "location": MessageLookupByLibrary.simpleMessage("Location"),
     "locationRequired": MessageLookupByLibrary.simpleMessage(
       "Location Required",
@@ -106,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Quran chat is not just quran reader. its spiritual experience that makes you feel like the Quran is speaking directly to you.",
     ),
     "page": MessageLookupByLibrary.simpleMessage("Page"),
-    "pageForm": MessageLookupByLibrary.simpleMessage("Page Form"),
+    "pageForm": MessageLookupByLibrary.simpleMessage("Tafsir"),
     "pickUrPlan": MessageLookupByLibrary.simpleMessage("Pick your plan"),
     "pleaseAddAnEmotionFirst": MessageLookupByLibrary.simpleMessage(
       "Please add an emotion first!",
@@ -123,6 +133,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Restore Purchases",
     ),
     "savePage": MessageLookupByLibrary.simpleMessage("Save Page"),
+    "savedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "saved successfully!",
+    ),
     "sebha": MessageLookupByLibrary.simpleMessage("Sebha"),
     "select": MessageLookupByLibrary.simpleMessage("Select"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
@@ -132,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Share as Screenshot",
     ),
     "shareAsText": MessageLookupByLibrary.simpleMessage("Share as Text"),
+    "startNow": MessageLookupByLibrary.simpleMessage("Start Now!"),
     "surah": MessageLookupByLibrary.simpleMessage("Surah"),
     "talkToQuran": MessageLookupByLibrary.simpleMessage("Talk to Quran"),
     "theResultWillBeShownHere": MessageLookupByLibrary.simpleMessage(

@@ -8,10 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
 import 'package:qurani_22/constants/colors.dart';
 import 'package:qurani_22/generated/l10n.dart';
-import 'package:qurani_22/json/quran_provider.dart';
-import 'package:qurani_22/packages/flutter_quran/lib/src/flutter_quran_screen.dart';
-import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
+import 'package:qurani_22/packages/quran_library/lib/flutter_quran_utils.dart';
+
+import 'package:qurani_22/packages/quran_library/lib/presentation/pages/quran_library_screen.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/custom_floating_bar.dart';
+import 'package:qurani_22/views/tabs_screen/widgets/modal_sheets.dart';
+import 'package:qurani_22/views/tabs_screen/widgets/quran_tafser_page.dart';
 
 class MushafPageView extends StatefulWidget {
   const MushafPageView({super.key, required this.pageNumber});
@@ -22,6 +25,7 @@ class MushafPageView extends StatefulWidget {
 }
 
 class _MushafPageViewState extends State<MushafPageView> {
+  late PageController _pageController;
   int index = 0;
   List<dynamic> pageData = [];
   bool isTafseerPage = false;
@@ -30,6 +34,7 @@ class _MushafPageViewState extends State<MushafPageView> {
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(initialPage: widget.pageNumber);
     index = widget.pageNumber;
     pageData = quran.getPageData(index);
     final quranProvider = Provider.of<QuranController>(context,listen: false);
@@ -102,7 +107,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                 onPressed: () {
                   Navigator.pop(context);
                   int page = quran.getPageNumber(controller.selectedSurah, controller.selectedAyah);
-                  FlutterQuran().navigateToPage(page);
+                  QuranLibrary().jumpToPage(page);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: darkBlue,
@@ -154,7 +159,7 @@ class _MushafPageViewState extends State<MushafPageView> {
                             });
                           } else if (value == 2) {
                             // Go to Marked Page
-                            FlutterQuran().navigateToPage(quranProvider.savedPage!);
+                            QuranLibrary().jumpToPage(quranProvider.savedPage!);
                           } else if (value == 3) {
                             setState(() {
                               isTafseerPage = !isTafseerPage;
@@ -215,12 +220,37 @@ class _MushafPageViewState extends State<MushafPageView> {
                   ],
                 ),
                 const Divider(),
+                isTafseerPage? Expanded(
+                  child: PageView.builder(
+                      reverse: true,
+                      controller: _pageController,
+                      itemCount: 604,
+                      onPageChanged: (a) {
+                       setState(() {
+                          quranProvider.saveLastRead(a+1);
+                          index = a + 1;
+                          pageData = quran.getPageData(a + 1);
+                          if(index == quranProvider.savedPage){
+                            isSavedPage = true;
+                          }else{
+                            isSavedPage = false;
+                          }
+                        });
+                      },
+                      itemBuilder: (context, pageIndex) {
+                        return Container(
+                          padding: const EdgeInsets.all(0.0),
+                          child: QuranTafserPage(index: pageIndex)
+                        );
+                      }
+                    ),
+                ) 
+                : 
                 Expanded(
-                  child: FlutterQuranScreen(
+                  child: QuranLibraryScreen(
                   useDefaultAppBar: false,
-                  showBottomWidget: false,
-                  onLongPress: () {
-                    log('best hamo fel donia');
+                  onAyahLongPress: (details, ayah) {
+                    showOptionsMenu(context, ayah.surahNumber!, ayah.ayahNumber);
                   },
                   onPageChanged: (a) {
                       setState(() {

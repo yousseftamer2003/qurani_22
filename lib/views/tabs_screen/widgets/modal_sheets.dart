@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/quran.dart';
 import 'package:qurani_22/constants/colors.dart';
+import 'package:qurani_22/generated/l10n.dart';
 import 'package:share_plus/share_plus.dart';
 
 void showOptionsMenu(BuildContext context, int surah, int verse) {
@@ -12,7 +13,7 @@ void showOptionsMenu(BuildContext context, int surah, int verse) {
         children: [
           ListTile(
             leading: const Icon(Icons.play_arrow),
-            title: const Text("Listen to verse"),
+            title: Text(S.of(context).listenToVerse),
             onTap: () {
               String audio = getAudioURLByVerse(surah, verse);
               String surahName = getSurahName(surah);
@@ -23,7 +24,7 @@ void showOptionsMenu(BuildContext context, int surah, int verse) {
           ),
           ListTile(
             leading: const Icon(Icons.share),
-            title: const Text("مشاركة"),
+            title: Text(S.of(context).share),
             onTap: () {
               Share.share(getVerse(surah, verse));
               Navigator.pop(ctx);

@@ -19,7 +19,7 @@ import 'package:qurani_22/controllers/start_controller.dart';
 import 'package:qurani_22/controllers/user_controller.dart';
 import 'package:qurani_22/firebase_options.dart';
 import 'package:qurani_22/generated/l10n.dart';
-import 'package:qurani_22/json/quran_provider.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
 import 'package:qurani_22/views/start/screens/splash_screen.dart';
 
 void main() async{
@@ -70,8 +70,9 @@ class MyApp extends StatelessWidget {
             locale: Locale(langServices.selectedLang),
             theme: ThemeData(
               scaffoldBackgroundColor: Colors.white,
+              useMaterial3: false,
               appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.white
+                backgroundColor: Colors.white,
               )
             ),
             home: const SplashScreen()

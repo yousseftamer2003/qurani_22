@@ -7,8 +7,9 @@ import 'package:qurani_22/controllers/emotions_controller.dart';
 import 'package:qurani_22/controllers/home_controller.dart';
 import 'package:qurani_22/controllers/in_app_purchases_controller.dart';
 import 'package:qurani_22/controllers/lang_controller.dart';
+import 'package:qurani_22/controllers/quran_provider.dart';
 import 'package:qurani_22/controllers/start_controller.dart';
-import 'package:qurani_22/packages/flutter_quran/lib/src/utils/flutter_quran_utils.dart';
+import 'package:qurani_22/packages/quran_library/lib/flutter_quran_utils.dart';
 import 'package:qurani_22/views/tabs_screen/screens/plans_screen.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/feautures_home_container.dart';
 import 'package:qurani_22/views/tabs_screen/widgets/gradient_text.dart';
@@ -31,7 +32,9 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      FlutterQuran().init();
+      QuranLibrary().init();
+      Provider.of<QuranController>(context, listen: false).loadSavedPage();
+      Provider.of<QuranController>(context, listen: false).loadLastRead();
       Provider.of<EmotionsController>(
         context,
         listen: false,
