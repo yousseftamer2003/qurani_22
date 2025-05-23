@@ -739,6 +739,26 @@ class S {
       args: [],
     );
   }
+
+  /// `You have reached the limit of generations today`
+  String get generationLimit {
+    return Intl.message(
+      'You have reached the limit of generations today',
+      name: 'generationLimit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please come back tommorrow`
+  String get pleaseComeBackTommorrow {
+    return Intl.message(
+      'Please come back tommorrow',
+      name: 'pleaseComeBackTommorrow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

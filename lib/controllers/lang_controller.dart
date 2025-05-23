@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:ui' as ui;
 
 class LangServices with ChangeNotifier {
   String _selectedLang = 'ar';
@@ -10,9 +11,29 @@ class LangServices with ChangeNotifier {
 
   bool get isArabic => _selectedLang == 'ar';
 
+  String _getSystemLanguage() {
+    final systemLocale = ui.window.locale;
+    String systemLangCode = systemLocale.languageCode;
+    
+    const supportedLanguages = ['ar', 'en'];
+    
+    if (supportedLanguages.contains(systemLangCode)) {
+      return systemLangCode;
+    }
+    
+    return 'ar'; 
+  }
+
   Future<void> loadLangFromPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _selectedLang = prefs.getString('selectedLang') ?? 'ar';
+    
+    if (prefs.containsKey('selectedLang')) {
+      _selectedLang = prefs.getString('selectedLang') ?? 'ar';
+    } else {
+      _selectedLang = _getSystemLanguage();
+      await prefs.setString('selectedLang', _selectedLang);
+    }
+    
     _locale = Locale(_selectedLang);
     notifyListeners();
   }

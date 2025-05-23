@@ -95,8 +95,8 @@ void _captureAndShareScreenshot() async {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 100,),
-            Text('You have reached the limit of generations today'),
-            Text('Please come back tommorrow'),
+            Text(S.of(context).generationLimit),
+            Text(S.of(context).pleaseComeBackTommorrow),
           ],
         );
       }
@@ -142,7 +142,7 @@ void _captureAndShareScreenshot() async {
                         children: [
                           Image.asset('assets/images/mushaf_blue.png', width: 50, height: 50),
                           const SizedBox(height: 8),
-                          Text('Powered by تحدث مع القران'),
+                          const Text('Powered by تحدث مع القران'),
                         ],
                       ),
                     ],

@@ -53,7 +53,7 @@ class _EmotionsContainerState extends State<EmotionsContainer> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                   decoration: BoxDecoration(
-                    color: isSelected ? Colors.blue.withOpacity(0.2) : Colors.transparent,
+                    color: isSelected ? Colors.blue.withValues(alpha: 0.2) : Colors.transparent,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Row(

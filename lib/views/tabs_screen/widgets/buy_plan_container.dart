@@ -57,7 +57,7 @@ class GradientBorderButton extends StatelessWidget {
               child:  Center(
                 child: Text(
                   S.of(context).upgradeToPremium,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white, // White to apply gradient effect

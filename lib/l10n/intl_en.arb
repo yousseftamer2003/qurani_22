@@ -89,6 +89,8 @@
     "normalView": "Normal View",
     "cancel": "Cancel",
     "permissionDenied": "Permission Denied",
-    "locationPermissionPermanentlyDenied": "Location permission permanently denied."
+    "locationPermissionPermanentlyDenied": "Location permission permanently denied.",
+    "generationLimit": "You have reached the limit of generations today",
+    "pleaseComeBackTommorrow": "Please come back tommorrow"
 
 }

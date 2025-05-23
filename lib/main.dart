@@ -22,17 +22,24 @@ import 'package:qurani_22/generated/l10n.dart';
 import 'package:qurani_22/controllers/quran_provider.dart';
 import 'package:qurani_22/views/start/screens/splash_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MobileAds.instance.initialize();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   await NotificationsController.instance.initialize();
-  runApp(const MyApp());
+  
+  // Initialize language service
+  final langServices = LangServices();
+  await langServices.loadLangFromPrefs();
+  
+  runApp(MyApp(langServices: langServices));
 }
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final LangServices langServices;
+  
+  const MyApp({super.key, required this.langServices});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => QiblaProvider()),
         ChangeNotifierProvider(create: (_) => SebhaController()),
         ChangeNotifierProvider(create: (_) => QuranNavigationController()),
-        ChangeNotifierProvider(create: (_) => LangServices()),
+        ChangeNotifierProvider.value(value: langServices), // Use the pre-initialized instance
         ChangeNotifierProvider(create: (_) => InAppPurchasesController()),
         ChangeNotifierProvider(create: (_) => AdsController()),
         ChangeNotifierProvider(create: (_) => UserController()),

@@ -85,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
+    "generationLimit": MessageLookupByLibrary.simpleMessage(
+      "تم الوصول لليميت اليوم",
+    ),
     "getPro": MessageLookupByLibrary.simpleMessage("اشترك في البريميوم"),
     "go": MessageLookupByLibrary.simpleMessage("اذهب"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
@@ -125,6 +128,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseAllowAutoStartForThisApp": MessageLookupByLibrary.simpleMessage(
       "الرجاء تفعيل التشغيل التلقائي لهذا التطبيق.",
+    ),
+    "pleaseComeBackTommorrow": MessageLookupByLibrary.simpleMessage(
+      "يرجى العودة الغد",
     ),
     "pleaseEnableLocationServicesForExactPrayerTimes":
         MessageLookupByLibrary.simpleMessage(

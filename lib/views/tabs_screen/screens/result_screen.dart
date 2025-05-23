@@ -57,12 +57,12 @@ class _ResultScreenState extends State<ResultScreen> {
                             begin: Alignment.topCenter,
                             end: Alignment.center,
                             colors: [
-                              Colors.black.withOpacity(0.8),
-                              Colors.black.withOpacity(0.2),
+                              Colors.black.withValues(alpha: 0.8),
+                              Colors.black.withValues(alpha: 0.2),
                             ],
                           ),
                         ),
-                        child: SizedBox(),
+                        child: const SizedBox(),
                       ),
                     ),
                   ),
@@ -83,7 +83,7 @@ class _ResultScreenState extends State<ResultScreen> {
                         // Title
                         Text(
                           S.of(context).talkToQuran,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -96,7 +96,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           child: Text(
                             S.of(context).chooseYourEmotion,
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white70, fontSize: 14),
+                            style: const TextStyle(color: Colors.white70, fontSize: 14),
                           ),
                         ),
                       ],

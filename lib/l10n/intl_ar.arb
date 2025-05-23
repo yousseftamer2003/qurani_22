@@ -89,6 +89,8 @@
     "normalView": "الوضع الاساسي",
     "cancel": "الغاء",
     "permissionDenied": "الصلاحية مرفوضة",
-    "locationPermissionPermanentlyDenied": "تم رفض صلاحية الموقع بشكل دائم"
+    "locationPermissionPermanentlyDenied": "تم رفض صلاحية الموقع بشكل دائم",
+    "generationLimit": "تم الوصول لليميت اليوم",
+    "pleaseComeBackTommorrow": "يرجى العودة الغد"
     
 }

@@ -42,7 +42,7 @@ class _PlansScreenState extends State<PlansScreen> {
                     const SizedBox(height: 10),
                     Text(
                       S.of(context).UnlockPremium,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -55,7 +55,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         const SizedBox(width: 10),
                         Text(
                           S.of(context).NoAds,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -70,7 +70,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         const SizedBox(width: 10),
                         Text(
                           S.of(context).noGenerationLimits,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -85,7 +85,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         const SizedBox(width: 10),
                         Text(
                           S.of(context).SmartTasbihtotrackyourdhikr,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -100,7 +100,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         const SizedBox(width: 10),
                         Text(
                           S.of(context).PersonalizedDuasforyourfeelings,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -115,7 +115,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         const SizedBox(width: 10),
                         Text(
                           S.of(context).Fasterexperienceandexclusiveupdates,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -127,7 +127,7 @@ class _PlansScreenState extends State<PlansScreen> {
                     // New motivational text
                     Text(
                       S.of(context).Yourheartdeservesthefullexperience,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -136,7 +136,7 @@ class _PlansScreenState extends State<PlansScreen> {
                     const SizedBox(height: 8),
                     Text(
                       S.of(context).Subscribenowandfeelthedifference,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -145,7 +145,7 @@ class _PlansScreenState extends State<PlansScreen> {
                     const SizedBox(height: 25),
                     Text(
                       S.of(context).pickUrPlan,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

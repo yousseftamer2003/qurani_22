@@ -87,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
+    "generationLimit": MessageLookupByLibrary.simpleMessage(
+      "You have reached the limit of generations today",
+    ),
     "getPro": MessageLookupByLibrary.simpleMessage("Get Pro"),
     "go": MessageLookupByLibrary.simpleMessage("Go"),
     "hereIsHelpForYourSelectedEmotion": MessageLookupByLibrary.simpleMessage(
@@ -131,6 +134,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseAllowAutoStartForThisApp": MessageLookupByLibrary.simpleMessage(
       "Please allow auto-start for this app.",
+    ),
+    "pleaseComeBackTommorrow": MessageLookupByLibrary.simpleMessage(
+      "Please come back tommorrow",
     ),
     "pleaseEnableLocationServicesForExactPrayerTimes":
         MessageLookupByLibrary.simpleMessage(

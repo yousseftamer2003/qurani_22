@@ -106,13 +106,13 @@ class _HomePageState extends State<HomePage>
                           ),
                         );
                       },
-                      child: GradientText(
+                      child: const GradientText(
                         text: 'Get Pro',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
-                        gradient: const LinearGradient(
+                        gradient: LinearGradient(
                           colors: [
                             Color(0xFFFDC830),
                             Color(0xFFF37335),
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage>
                             const PrayerTimesContainer(),
                             const FeauturesHomeContainer(),
                             const Spacer(),
-                            TalkToQuranButton(),
+                            const TalkToQuranButton(),
                             const SizedBox(height: 60),
                           ],
                         ),

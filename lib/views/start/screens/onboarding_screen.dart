@@ -107,7 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         wrapImage
             ? Container(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
@@ -41,7 +43,7 @@ class _QuranPageState extends State<QuranPage> {
               showFloatingSnackBar(context, S.of(context).NoSavedPage);
             }
           }, 
-          child: Text(S.of(context).GoToSavedPage,style: const TextStyle(color: lightBlue),))
+          child: Text(S.of(context).GoToSavedPage,style: const TextStyle(color: lightBlue),)),
         ],
       ),
       body: Consumer<QuranController>(
@@ -50,7 +52,8 @@ class _QuranPageState extends State<QuranPage> {
           children: [
             if(quranProvider.lastReadPage != null)
             GestureDetector(
-              onTap: (){
+              onTap: () async{
+                await quranProvider.loadLastRead();
                 QuranLibrary().jumpToPage(quranProvider.lastReadPage!);
                 Navigator.push(
                   context,
@@ -69,7 +72,7 @@ class _QuranPageState extends State<QuranPage> {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 8,
                         offset: const Offset(0, 4),
                       ),
@@ -111,7 +114,7 @@ class _QuranPageState extends State<QuranPage> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: Colors.black.withValues(alpha: 0.05),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),
@@ -177,7 +180,7 @@ class _QuranPageState extends State<QuranPage> {
                               Text(
                                 quran.getSurahNameArabic(surahNumber),
                                 style: const TextStyle(
-                                  fontFamily: 'Amiri', // Optional custom Arabic font
+                                  fontFamily: 'Scheherazade New',
                                   fontSize: 18,
                                   color: lightBlue,
                                 ),

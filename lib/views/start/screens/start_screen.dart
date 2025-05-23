@@ -223,7 +223,7 @@ class _StartScreenState extends State<StartScreen> {
                                           actions: [
                                             TextButton(
                                               child: Text(S.of(context).ok,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   color: darkBlue,
                                                 ),
                                               ),
@@ -266,7 +266,7 @@ class _StartScreenState extends State<StartScreen> {
             builder: (context, addressProvider, _) {
               if (addressProvider.isLoading) {
                 return Container(
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withValues(alpha: 0.7),
                   child: const Center(
                     child: CircularProgressIndicator(color: Colors.white),
                   ),

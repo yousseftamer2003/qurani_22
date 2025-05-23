@@ -58,7 +58,7 @@ class _TalkToQuranButtonState extends State<TalkToQuranButton> with SingleTicker
               borderRadius: BorderRadius.circular(30),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blue.withOpacity(0.3),
+                  color: Colors.blue.withValues(alpha: 0.3),
                   spreadRadius: 3,
                   blurRadius: 8,
                   offset: const Offset(0, 3),
@@ -76,7 +76,7 @@ class _TalkToQuranButtonState extends State<TalkToQuranButton> with SingleTicker
                 const SizedBox(width: 10),
                 Text(
                   S.of(context).talkToQuran,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

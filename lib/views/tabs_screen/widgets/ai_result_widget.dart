@@ -48,11 +48,11 @@ class _AIResultWidgetState extends State<AIResultWidget> {
 
   // Build typing dots animation
   Widget _buildTypingDots() {
-    return Center(
-      key: const ValueKey('typing'),
+    return const Center(
+      key: ValueKey('typing'),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           TypingDots(),
         ],
       ),

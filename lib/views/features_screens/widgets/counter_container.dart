@@ -28,12 +28,12 @@ class CounterContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("$count",
-                  style: TextStyle(color: Colors.white, fontSize: 60)),
+                  style: const TextStyle(color: Colors.white, fontSize: 60)),
             ],
           ),
           Row(
